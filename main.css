@@ -107,7 +107,7 @@ header a {
 }
 
 header nav a {
-  margin-left: 8px;
+  margin-left: 10px;
 }
 
 header div.image {
@@ -215,9 +215,10 @@ header img::after {
   position: fixed;
   top: 50px;
   left: 0px;
-  padding: 12px;
+  padding: 0 12px;
   margin-left: 0px;
   background: #333;
+  z-index: 2;
 }
 
 .side-menu:checked ~ nav li {
