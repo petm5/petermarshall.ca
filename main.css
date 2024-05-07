@@ -107,7 +107,7 @@ header a {
 }
 
 header nav a {
-  margin: 4px 8px;
+  margin-left: 8px;
 }
 
 header div.image {
@@ -151,13 +151,11 @@ header img::after {
   flex-direction: row;
   width: 100vw;
   height: 50px;
-  padding: 0 12px;
   background: #333;
 }
 
 .topbar > * {
-  margin-top: auto;
-  margin-bottom: auto;
+  margin: auto 16px;
 }
 
 .topbar ul {
@@ -177,6 +175,23 @@ header img::after {
   display: none;
 }
 
+.hamb {
+  width: 50px;
+  height: 100%;
+  place-content: center;
+  margin: 0;
+  margin-left: auto;
+}
+
+.hamb span {
+  display: inherit;
+  width: 16px;
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-top: 2px solid white;
+}
+
 @media (max-width: 768px) {
   .topbar nav {
     display: none;
@@ -188,6 +203,7 @@ header img::after {
 
 .side-menu:checked ~ .hamb {
   display: block;
+  background: #222;
 }
 
 .side-menu:checked ~ nav {
@@ -206,6 +222,7 @@ header img::after {
 
 .side-menu:checked ~ nav li {
   display: block;
+  margin: 12px 0;
 }
 
 footer {
