@@ -1,0 +1,22 @@
+{
+  "name": "cheesecraft-website",
+  "version": "1.0.0",
+  "description": "CheeseCraft is a Minecraft server aimed toward resource gathering and building. This website, written using HTML, CSS, and JavaScript with [Eleventy](https://www.11ty.dev/) and [Cloudflare Pages](https://pages.cloudflare.com/), introduces new players to my server and provides a review of previous game seasons. The project also consists of a Linux server hosted on a repurposed laptop and written in [Nix](https://nixos.org/) that hosts the Minecraft worlds securely.",
+  "main": ".eleventy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  },
+  "dependencies": {
+    "@11ty/eleventy-img": "^4.0.2",
+    "markdown-it": "^14.1.0",
+    "markdown-it-anchor": "^8.6.7",
+    "markdown-it-attrs": "^4.1.6",
+    "sharp": "^0.33.3"
+  }
+}
