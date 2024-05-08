@@ -20,7 +20,7 @@ html {
 }
 
 body {
-  --banner-height: 18svh;
+  --banner-height: max(140px, 18svh);
   --navbar-height: 50px;
   padding: 0;
   font-family: 'Roboto', system-ui, sans-serif;
@@ -71,7 +71,6 @@ body, .wrapper {
   place-content: center;
   width: 100vw;
   height: var(--banner-height);
-  min-height: 140px;
   user-select: none;
   text-wrap: nowrap;
   padding: 0;
@@ -220,7 +219,7 @@ footer p {
   color: #555;
 }
 
-article p:first-child {
+article > p:first-child {
   font-size: 18px
 }
 
@@ -319,15 +318,6 @@ thead {
   margin-right: 8px;
 }
 
-.grid img {
-  width: 100%;
-  height: min(60vw, 350px);
-  object-fit: cover;
-  object-position: 50% 50%;
-  transition: transform 0.4s;
-  position: relative;
-}
-
 .grid li a:focus {
   transform: scale(103%);
 }
@@ -338,15 +328,15 @@ thead {
   }
 }
 
-.tags {
+.links {
   margin-top: auto;
 }
 
-.tags > * {
+.links > * {
   margin-right: 10px;
 }
 
-.tags > *::before, .tag::before {
+.tag::before {
   content: "🏷️";
   margin-right: 8px;
 }
@@ -358,7 +348,7 @@ thead {
   }
 
   .wrapper {
-    box-shadow: 0px 60px 60px -60px #161616 inset;
+    box-shadow: 0px 40px 40px -40px #161616 inset;
   }
 
   footer p {
