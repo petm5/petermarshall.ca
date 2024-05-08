@@ -49,12 +49,9 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("sw.js")
   eleventyConfig.addPassthroughCopy("fonts")
   eleventyConfig.addNunjucksShortcode('image', generateImage)
-  eleventyConfig.addPairedShortcode('grid', (children) => {
-    return `
-      <div class="grid">
-      
-      ${content}
-      
-      </div>`
+  eleventyConfig.addFilter("postDate", dateObj => {
+    return new Date(dateObj).toLocaleString("en-US", {
+      dateStyle: "medium"
+    })
   })
 };

@@ -1,0 +1,33 @@
+---
+title: All Posts
+pagination:
+  data: collections.post
+  size: 2
+  alias: posts
+  reverse: true
+---
+
+<ul class="grid">
+  {% for post in posts %}
+  <li>
+    <a href="{{post.url}}">
+      <p>{{post.data.title}}</p>
+      <small>{{post.date | postDate}}</small>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+
+<p>
+{% if pagination.href.previous %}
+<a href=" {{ pagination.href.previous }}">Previous</a>
+{% else %}
+Previous
+{% endif %} 
+/ 
+{% if pagination.href.next %}
+<a href=" {{ pagination.href.next }}">Next</a>
+{% else %}
+Next
+{% endif %}
+</p>

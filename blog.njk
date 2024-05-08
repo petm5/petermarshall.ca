@@ -1,0 +1,19 @@
+---
+description:
+title: Blog
+---
+
+<ul class="grid">
+  {% for post in collections.post.reverse() %}
+  <li>
+    <a href="{{post.url}}">
+      <p>{{post.data.title}}</p>
+      <small>{{post.date | postDate}}</small>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+
+<p>
+<a href="/all-posts">All Posts</a>
+</p>
