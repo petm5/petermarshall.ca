@@ -7,7 +7,7 @@
 @font-face {
   font-family: 'Roboto';
   src: local('Roboto Regular'), url('fonts/Roboto-Regular.ttf') format('truetype');
-  font-display: optional;
+  font-display: block;
 }
 
 * {
@@ -16,18 +16,19 @@
 }
 
 html {
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 body {
+  --banner-height: 18svh;
+  --navbar-height: 50px;
   padding: 0;
   font-family: 'Roboto', system-ui, sans-serif;
   line-height: 1.5;
   font-size: 17px;
-  overflow-y: scroll;
-  /* overflow-x: hidden; */
-  perspective: 10px;
-  perspective-origin: right top;
+  /* overflow-y: scroll; */
+  overflow-x: hidden;
+  /* perspective: 10px; */
   scroll-behavior: smooth;
   display: flex;
   flex-direction: column;
@@ -36,9 +37,9 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-/*body.home {
-  perspective-origin: bottom right;
-}*/
+body.home {
+  --banner-height: 30svh;
+}
 
 body, .wrapper {
   background: #eee;
@@ -52,7 +53,7 @@ body, .wrapper {
   width: 100%;
   flex-grow: 1;
   flex-shrink: 0;
-  box-shadow: 0px 60px 60px -60px black inset;
+  box-shadow: 0px 60px 60px -60px #aaa inset;
 }
 
 .wrapper > * {
@@ -65,32 +66,24 @@ body, .wrapper {
   padding-top: var(--layout-spacing);
 }
 
-header {
-  transform-style: preserve-3d;
-}
-
 .parallax {
   display: grid;
   place-content: center;
   width: 100vw;
-  height: 18svh;
+  height: var(--banner-height);
   min-height: 140px;
   user-select: none;
   text-wrap: nowrap;
   padding: 0;
   color: white;
-  transform-style: preserve-3d;
+  /* transform-style: preserve-3d; */
   flex-shrink: 0;
   font-family: system-ui, sans-serif;
 }
 
-body.home .parallax {
-  height: 30svh;
-}
-
-/*body.home header {
-  height: 100svh;
-}*/
+/* header { */
+  /* transform-style: preserve-3d; */
+/* } */
 
 header a {
   color: white;
@@ -100,14 +93,13 @@ header a {
 }
 
 header div.image {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: calc(100% + 50px);
-  overflow: hidden;
-  transform: translateZ(-10px) scale(2);
-  transform-origin: right top;
+  height: calc(var(--banner-height) + var(--navbar-height));
+  z-index: -1;
+  /* transform: translateZ(-10px) scale(2); */
   pointer-events: none;
 }
 
@@ -139,8 +131,9 @@ header img::after {
   display: flex;
   flex-direction: row;
   width: 100vw;
-  height: 50px;
+  height: var(--navbar-height);
   background: #333;
+  user-select: none;
 }
 
 .topbar > * {
@@ -202,7 +195,7 @@ header img::after {
   box-sizing: border-box;
   overflow: scroll;
   position: fixed;
-  top: 50px;
+  top: var(--navbar-height);
   left: 0px;
   padding: 0 12px;
   margin-left: 0px;
@@ -225,6 +218,10 @@ footer p {
   padding-top: 0.25em;
   font-size: 0.9rem;
   color: #555;
+}
+
+article p:first-child {
+  font-size: 18px
 }
 
 :is(h1, h2, h3) {
@@ -254,12 +251,18 @@ table {
   box-shadow: 0px 3px 50px black;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
 article > * + * {
   margin-top: 1em;
 }
 
 a {
-  color: cyan;
+  color: #156974;
   text-underline-offset: 0.15em;
 }
 
@@ -287,17 +290,18 @@ thead {
   list-style: none;
   display: block;
   border-radius: 4px;
-  box-shadow: 0px 0px 80px #111;
+  box-shadow: 0px 0px 24px #ccc;
 }
 
 .grid a {
   display: block;
   color: inherit;
   text-decoration: none;
-  background: #222;
+  background: #eee;
   border-radius: 4px;
-  border: 1px solid #333;
+  border: 1px solid #ddd;
   transition: transform 0.3s;
+  overflow: hidden;
 }
 
 .grid a > * {
@@ -306,8 +310,8 @@ thead {
 
 .grid small {
   display: block;
-  background: #333;
-  color: #bbb;
+  background: #e5e5e5;
+  color: #666;
 }
 
 .grid small::before {
@@ -329,9 +333,22 @@ thead {
 }
 
 @media (hover: hover) {
-  .grid:hover {
+  .grid li a:hover {
     transform: scale(103%);
   }
+}
+
+.tags {
+  margin-top: auto;
+}
+
+.tags > * {
+  margin-right: 10px;
+}
+
+.tags > *::before {
+  content: "🏷️";
+  margin-right: 8px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -340,8 +357,30 @@ thead {
     color: #ddd;
   }
 
+  .wrapper {
+    box-shadow: 0px 60px 60px -60px #161616 inset;
+  }
+
   footer p {
     border-top: 1px solid #ccc;
     color: #bbb;
+  }
+
+  a {
+    color: cyan;
+  }
+
+  .grid a {
+    background: #222;
+    border: 1px solid #333;
+  }
+
+  .grid small {
+    background: #333;
+    color: #bbb;
+  }
+
+  .grid > li {
+    box-shadow: 0px 0px 6px #111;
   }
 }

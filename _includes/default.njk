@@ -45,6 +45,14 @@
         <article>
           {{ content | safe }}
         </article>
+        {% set dtags = tags | filterTagList %}
+        {% if dtags | length %}
+          <div class="tags">
+          {% for tag in dtags %}
+            <span><a href="/tags/{{ tag }}">{{ tag }}</a></span>
+          {% endfor %}
+          </div>
+        {% endif %}
       </main>
       <footer>
         <p>© {{ site.copyright }} {{ page.date.getUTCFullYear() }}</p>

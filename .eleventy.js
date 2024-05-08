@@ -23,7 +23,7 @@ function generateImage (imgSrc, imgAlt = "", imgTitle = "") {
 
   const imgOpts = {
     widths: [144, 240, 460, 580, 768, "auto"],
-    formats: ['avif', 'jpeg'],
+    formats: ['avif'],
     urlPath: '/assets/img/',
     outputDir: './_site/assets/img/'
   }
@@ -54,4 +54,17 @@ module.exports = function(eleventyConfig) {
       dateStyle: "medium"
     })
   })
+
+	// Return all the tags used in a collection
+	eleventyConfig.addFilter("getAllTags", collection => {
+		let tagSet = new Set();
+		for(let item of collection) {
+			(item.data.tags || []).forEach(tag => tagSet.add(tag));
+		}
+		return Array.from(tagSet);
+	});
+
+	eleventyConfig.addFilter("filterTagList", function filterTagList(tags) {
+		return (tags || []).filter(tag => ["all", "nav", "post", "posts"].indexOf(tag) === -1);
+	});
 };
