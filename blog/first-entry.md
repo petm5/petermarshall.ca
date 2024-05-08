@@ -1,6 +1,5 @@
 ---
 tags:
-  - post
   - test
   - stuff
 title: First Entry

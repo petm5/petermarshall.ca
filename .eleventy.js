@@ -54,17 +54,17 @@ module.exports = function(eleventyConfig) {
       dateStyle: "medium"
     })
   })
-
-	// Return all the tags used in a collection
 	eleventyConfig.addFilter("getAllTags", collection => {
-		let tagSet = new Set();
+		let tagSet = new Set()
 		for(let item of collection) {
-			(item.data.tags || []).forEach(tag => tagSet.add(tag));
+			(item.data.tags || []).forEach(tag => tagSet.add(tag))
 		}
-		return Array.from(tagSet);
-	});
-
+		return Array.from(tagSet)
+	})
 	eleventyConfig.addFilter("filterTagList", function filterTagList(tags) {
-		return (tags || []).filter(tag => ["all", "nav", "post", "posts"].indexOf(tag) === -1);
-	});
+		return (tags || []).filter(tag => ["all", "nav", "post", "posts"].indexOf(tag) === -1)
+	})
+	eleventyConfig.addCollection('posts', collection => {
+    return [...collection.getFilteredByGlob('./blog/*.md')].reverse()
+  })
 };

@@ -4,21 +4,21 @@ pagination:
   size: 1
   alias: tag
   filter:
-    - post
+    - all
+    - posts
 permalink: /tags/{{ tag }}/
 eleventyComputed:
   title: Tagged "{{ tag }}"
 ---
 
-{% set posts = collections[ tag ] %}
-
 <ul class="grid">
-  {% for post in posts %}
+  {%- set posts = collections[ tag ] %}
+  {%- for post in posts %}
   <li>
     <a href="{{post.url}}">
       <p class="tag">{{post.data.title}}</p>
       <small>{{post.date | postDate}}</small>
     </a>
   </li>
-  {% endfor %}
+  {%- endfor %}
 </ul>

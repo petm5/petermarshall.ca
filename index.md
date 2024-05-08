@@ -4,6 +4,4 @@ description:
 title: Home
 ---
 
-# Hello!
-
-Welcome to my site.
+Some stuff should go here...

@@ -4,13 +4,4 @@
 <article>
   {{ content | safe }}
 </article>
-
-{% set dtags = tags | filterTagList %}
-{% if dtags | length %}
-  <div class="links">
-  {% for tag in dtags %}
-    <span class="tag"><a href="/tags/{{ tag }}">{{ tag }}</a></span>
-  {% endfor %}
-  </div>
-{% endif %}
 {% endblock %}

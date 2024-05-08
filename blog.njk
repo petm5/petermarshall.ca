@@ -1,11 +1,15 @@
 ---
 layout: wrapper.njk
-description:
 title: Blog
+pagination:
+  data: collections.posts
+  size: 10
+  alias: posts
+permalink: 'blog{% if pagination.pageNumber > 0 %}/page/{{ pagination.pageNumber }}{% endif %}/index.html'
 ---
 
 <ul class="grid">
-  {% for post in collections.post.reverse() %}
+  {% for post in posts %}
   <li>
     <a href="{{post.url}}">
       <p>{{post.data.title}}</p>
@@ -16,6 +20,22 @@ title: Blog
 </ul>
 
 <div class="links">
-  <p><a href="/tags">Search by Tag</a></p>
-  <p><a href="/all-posts">All Posts</a></p>
+  <p>
+  {% if pagination.href.previous %}
+  <a href=" {{ pagination.href.previous }}">Previous</a>
+  {% else %}
+  Previous
+  {% endif %} 
+  - 
+  {% if pagination.href.next %}
+  <a href=" {{ pagination.href.next }}">Next</a>
+  {% else %}
+  Next
+  {% endif %}
+  </p>
+  <p>
+    <a href="/tags">Topics</a>
+    -
+    <a href="/all-posts">View All</a>
+  </p>
 </div>

@@ -7,10 +7,7 @@
     <link rel="stylesheet" href="/main.css" />
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#202933" />
-    <link rel="preload" href="/fonts/icomoon.woff" as="font" crossorigin>
     <link rel="preload" href="/fonts/Roboto-Regular.ttf" as="font" crossorigin>
-    <link rel="preload" href="/fonts/ProtestRiot-Regular.ttf" as="font" crossorigin>
-    <link rel="preload" as="image" href="/assets/img/qbefrBzqSk-144.jpeg">
     <title>{% if title %}{{ title }} - {% endif %}{{ site.title }}</title>
   </head>
   <body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
@@ -33,11 +30,14 @@
           </ul>
         </nav>
       </div>
-      <div class="parallax">
+      <div class="banner">
         <div class="image">
           {% image "images/banner.jpg" %}
         </div>
-        <h1>{% if title %}{{ title }}{% endif %}</h1>
+        <div class="content">
+          <h1>{% if title %}{{ title }}{% endif %}</h1>
+          {% if postDate %}<small>Posted {{ postDate }}</small>{% endif %}
+        </div>
       </div>
     </header>
     <div class="wrapper">
