@@ -346,7 +346,7 @@ thead {
   margin-right: 10px;
 }
 
-.tags > *::before {
+.tags > *::before, .tag::before {
   content: "🏷️";
   margin-right: 8px;
 }

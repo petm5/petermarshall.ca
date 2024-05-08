@@ -16,7 +16,7 @@ eleventyComputed:
   {% for post in posts %}
   <li>
     <a href="{{post.url}}">
-      <p>{{post.data.title}}</p>
+      <p class="tag">{{post.data.title}}</p>
       <small>{{post.date | postDate}}</small>
     </a>
   </li>
