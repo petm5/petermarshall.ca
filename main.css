@@ -162,6 +162,7 @@ header a {
   place-content: center;
   margin: 0;
   margin-left: auto;
+  transition: background .3s;
 }
 
 .hamb span {
@@ -198,7 +199,7 @@ header a {
     z-index: 2;
     visibility: hidden;
     opacity: 0;
-    transition: opacity .6s, visibility .6s, transform .6s;
+    transition: opacity .2s, visibility .3s, transform .3s ease-out;
     animation: initial-hide 1ms;
   }
   .hamb {
@@ -296,13 +297,13 @@ thead {
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 2em;
   padding: 0;
+  margin-bottom: 16px;
 }
 
 .grid > li {
   list-style: none;
   display: block;
   border-radius: 4px;
-  box-shadow: 0px 0px 24px #ccc;
 }
 
 .grid a {
@@ -314,6 +315,7 @@ thead {
   border: 1px solid #ddd;
   transition: transform 0.3s;
   overflow: hidden;
+  box-shadow: 0px 0px 24px #ccc;
 }
 
 .grid a > * {
@@ -384,7 +386,7 @@ thead {
     color: #bbb;
   }
 
-  .grid > li {
+  .grid a {
     box-shadow: 0px 0px 6px #111;
   }
 }
