@@ -81,6 +81,7 @@ body, .wrapper {
 
 .banner .content {
   margin: auto;
+  max-width: 580px;
 }
 
 .banner .image {
@@ -131,6 +132,7 @@ header a {
   height: var(--navbar-height);
   background: #333;
   user-select: none;
+  box-shadow: 0 0 3px #111;
 }
 
 .topbar > * {
@@ -173,10 +175,27 @@ header a {
 
 @media (max-width: 768px) {
   .topbar nav {
-    display: none;
+    visibility: hidden;
+    transform: translateY(-20px);
+    opacity: 0;
+    width: 100%;
+    max-height: 100%;
+    box-sizing: border-box;
+    overflow: scroll;
+    position: fixed;
+    top: var(--navbar-height);
+    left: 0px;
+    padding: 0 12px;
+    margin-left: 0px;
+    background: #333;
+    z-index: 2;
   }
   .hamb {
     display: block;
+  }
+  .side-menu ~ nav li {
+    display: block;
+    margin: 12px 0;
   }
 }
 
@@ -186,23 +205,10 @@ header a {
 }
 
 .side-menu:checked ~ nav {
-  display: block;
-  width: 100%;
-  max-height: 100%;
-  box-sizing: border-box;
-  overflow: scroll;
-  position: fixed;
-  top: var(--navbar-height);
-  left: 0px;
-  padding: 0 12px;
-  margin-left: 0px;
-  background: #333;
-  z-index: 2;
-}
-
-.side-menu:checked ~ nav li {
-  display: block;
-  margin: 12px 0;
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0);
+  transition: visibility 1s, opacity .6s, transform .6s;
 }
 
 footer {
