@@ -6,7 +6,7 @@ pagination:
   filter:
     - all
     - posts
-permalink: /tags/{{ tag }}/
+permalink: /tags/{{ tag | slugify }}/
 eleventyComputed:
   title: Tagged "{{ tag }}"
 ---
@@ -16,7 +16,7 @@ eleventyComputed:
   {%- for post in posts %}
   <li>
     <a href="{{post.url}}">
-      <p class="tag">{{post.data.title}}</p>
+      <p>{{post.data.title}}</p>
       <small>{{post.date | postDate}}</small>
     </a>
   </li>

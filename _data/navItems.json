@@ -6,5 +6,9 @@
   {
     "name": "About",
     "href": "/about"
+  },
+  {
+    "name": "Contact",
+    "href": "https://docs.google.com/forms/d/e/1FAIpQLSfTX9pxA_gLbxisY6dIlLgEsUrhpI_Ov-bql1uzFW0sPIPPwQ/viewform?usp=pp_url"
   }
 ]
