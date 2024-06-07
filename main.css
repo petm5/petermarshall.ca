@@ -349,6 +349,7 @@ thead {
 
 .links {
   margin-top: auto;
+  padding-top: 1rem;
   user-select: none;
 }
 
