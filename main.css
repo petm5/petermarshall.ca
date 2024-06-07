@@ -69,7 +69,7 @@ body, .wrapper {
   display: flex;
   text-align: center;
   overflow: scroll;
-  padding: 18px;
+  padding: 26px 18px;
   width: 100vw;
   min-height: var(--banner-height);
   max-height: var(--banner-max-height);
