@@ -56,7 +56,7 @@ body, .wrapper {
 }
 
 .wrapper > * {
-  --layout-spacing: max(min(8vw, 3rem), 1rem);
+  --layout-spacing: max(min(8vw, 5rem), 1rem);
   --max-width: 110ch;
   width: min(100%, var(--max-width));
   margin-left: auto;
