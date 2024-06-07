@@ -20,8 +20,8 @@ html {
 }
 
 body {
-  --banner-height: max(140px, 18svh);
-  --banner-max-height: 60svh;
+  --banner-height: 140px;
+  --banner-max-height: 300px;
   --navbar-height: 50px;
   padding: 0;
   font-family: 'Roboto', system-ui, sans-serif;
@@ -37,7 +37,7 @@ body {
 }
 
 body.home {
-  --banner-height: 30svh;
+  --banner-height: 200px;
 }
 
 body, .wrapper {
@@ -57,7 +57,7 @@ body, .wrapper {
 
 .wrapper > * {
   --layout-spacing: max(min(8vw, 3rem), 1rem);
-  --max-width: 70ch;
+  --max-width: 110ch;
   width: min(100%, var(--max-width));
   margin-left: auto;
   margin-right: auto;
@@ -81,7 +81,18 @@ body, .wrapper {
 
 .banner .content {
   margin: auto;
-  max-width: 580px;
+  max-width: 70ch;
+}
+
+.banner h1 {
+  font-weight: lighter;
+  margin-bottom: 8px;
+}
+
+body.home .banner h1 {
+  font-weight: bold;
+  font-size: 34pt;
+  margin-bottom: 0;
 }
 
 .banner .image {
@@ -90,6 +101,7 @@ body, .wrapper {
   left: 0;
   right: 0;
   height: calc(var(--banner-max-height) + var(--navbar-height));
+  max-height: 100svh;
   z-index: -1;
   pointer-events: none;
 }
@@ -137,6 +149,10 @@ header a {
 
 .topbar > * {
   margin: auto 4px;
+}
+
+.topbar .logo {
+  font-size: 13pt;
 }
 
 .topbar ul {
@@ -302,6 +318,7 @@ thead {
   grid-gap: 2em;
   padding: 0;
   margin-bottom: 16px;
+  place-content: center;
 }
 
 .grid > li {
