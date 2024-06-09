@@ -241,7 +241,7 @@ table {
 .grid {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-gap: 2em;
+  grid-gap: .8em;
   padding: 0;
   margin-bottom: 16px;
   place-content: center;
