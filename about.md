@@ -2,4 +2,6 @@
 title: About Me
 ---
 
-I am working on graphic design and computer programming. I am developing projects to build websites and web apps that are safe. Beyond computer programming, I am interested in the arts and classic literature.
+{% image 'images/banner.jpg' %}
+
+Hello! I'm Peter. I am currently developing my skills in graphic design and Web programming through developing secure and reliable web apps. Beyond computer programming, I am interested in the arts and classic literature.

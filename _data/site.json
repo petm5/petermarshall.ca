@@ -1,8 +1,9 @@
 {
   "title": "Peter Marshall",
-  "tagline": "Building safe online communities",
+  "tagline": "Constructing Cyber Sanctuaries",
+  "description": "I develop reliable digital experiences that set the standards for safety. Let's get building!",
   "copyright": "Peter Marshall",
-  "baseUrl": "https://petms.opcc.tk",
+  "baseUrl": "https://petermarshall.ca",
   "robots": "/robots.txt",
   "siteMap": "/sitemap.txt"
 }
