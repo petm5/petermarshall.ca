@@ -31,13 +31,8 @@ body {
   scroll-behavior: smooth;
   display: flex;
   flex-direction: column;
-  height: 100svh;
+  min-height: 100svh;
   width: 100svw;
-}
-
-.header {
-  color: white;
-  padding: 1rem;
 }
 
 body > * {
@@ -73,10 +68,24 @@ body.home main {
   align-content: center;
 }
 
-body.home .header {
+.header {
   display: grid;
   place-content: center;
   flex-grow: 1;
+  color: white;
+  padding: var(--layout-spacing) 0;
+}
+
+.header .content {
+  padding: 2rem;
+  background: #0000000d;
+  border-radius: 9px;
+  box-shadow: 0px 0px 6px #00000010;
+  max-width: 60ch;
+}
+
+.header .content > * + * {
+  margin-top: 1em;
 }
 
 body.home {
