@@ -3,6 +3,10 @@
 {% set postDate = page.date | postDate %}
 
 {%- block content %}
+<div class="title">
+  <h1>{% if title %}{{ title }}{% endif %}</h1>
+  {% if postDate %}<small>Posted {{ postDate }}</small>{% endif %}
+</div>
 <article>
   {{ content | safe }}
 </article>

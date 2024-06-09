@@ -11,17 +11,10 @@
     <title>{% if title %}{{ title }} - {% endif %}{{ site.title }}</title>
   </head>
   <body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
-    <header>
-      <div class="topbar">
+      <header class="topbar">
         <span class="logo">
           <a href="/">{{ site.title }}</a>
         </span>
-        <input class="side-menu" type="checkbox" id="side-menu" />
-        <label class="hamb" for="side-menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </label>
         <nav>
           <ul>
             {% for item in navItems %}
@@ -29,18 +22,7 @@
             {% endfor %}
           </ul>
         </nav>
-      </div>
-      <div class="banner">
-        <div class="image">
-          {% image "images/banner.jpg" %}
-        </div>
-        <div class="content">
-          <h1>{% if title %}{{ title }}{% endif %}</h1>
-          {% if postDate %}<small>Posted {{ postDate }}</small>{% endif %}
-        </div>
-      </div>
-    </header>
-    <div class="wrapper">
+      </header>
       <main>
         {% block content %}
           {{ content | safe }}
@@ -49,6 +31,5 @@
       <footer>
         <p>© {{ site.copyright }} {{ page.date.getUTCFullYear() }}</p>
       </footer>
-    </div>
   </body>
 </html>
