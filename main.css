@@ -36,7 +36,7 @@ body {
 }
 
 body > * {
-  --max-width: 110ch;
+  --max-width: 90ch;
   width: min(100%, var(--max-width));
   margin-left: auto;
   margin-right: auto;
@@ -110,6 +110,8 @@ body.home {
   padding: 8px;
   background: #283438;
   color: white;
+  margin: 0;
+  width: 100%;
 }
 
 .title {
@@ -122,14 +124,19 @@ body.home {
 }
 
 img {
-  width: 100%;
-  max-width: 24rem;
-  height: 12rem;
-  flex-shrink: 0;
+  max-height: 24rem;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
   position: relative;
-  margin: 0 auto;
+  margin: 2.5rem auto !important;
   display: block;
   border-radius: 9px;
+}
+
+img:first-child {
+  margin-top: 0;
 }
 
 img::after {
