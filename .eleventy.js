@@ -12,10 +12,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.setLibrary('md', markdown)
   eleventyConfig.addPassthroughCopy("main.css")
   eleventyConfig.addPassthroughCopy("favicon.ico")
-  eleventyConfig.addPassthroughCopy("icons")
-  eleventyConfig.addPassthroughCopy("manifest.json")
-  eleventyConfig.addPassthroughCopy("app.js")
-  eleventyConfig.addPassthroughCopy("sw.js")
+  eleventyConfig.addPassthroughCopy({"images/logo.png": "favicon.png"})
   eleventyConfig.addPassthroughCopy("fonts")
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
 		extensions: "html",
