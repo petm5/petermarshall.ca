@@ -1,0 +1,23 @@
+---
+layout:
+eleventyExcludeFromCollections: true
+eleventyComputed:
+  permalink: "/manifest.json"
+---
+{
+  "name": "{{ site.title }} - {{ site.tagline }}",
+  "short_name": "{{ site.desc }}",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "{{ colors.primary }}",
+  "theme_color": "{{ colors.primary }}",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/logo.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ]
+}
