@@ -88,6 +88,43 @@ body.home main {
   margin-top: 1em;
 }
 
+.header h1:after {
+  content: "";
+  display: inline-block;
+  position: relative;
+  top: 0.24ch;
+  height: 1.8ch;
+  width: 4px;
+  background: #ddd;
+  margin: auto 0;
+  margin-left: 2px;
+  animation: blink 1.2s forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.header a {
+  animation: slide-in .6s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes blink {
+  from { opacity: 0 }
+  95% { opacity: 1 }
+  to { opacity: 0 }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-2px);
+    opacity: 0.9;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
 body.home {
   background: linear-gradient(40deg, #3c5363, #665966);
 }
