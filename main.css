@@ -72,13 +72,13 @@ body.home main {
   display: grid;
   place-content: center;
   flex-grow: 1;
-  color: white;
+  color: #222;
   padding: var(--layout-spacing) 0;
 }
 
 .header .content {
   padding: 2rem;
-  background: #0000000d;
+  background: #ffffffa0;
   border-radius: 9px;
   box-shadow: 0px 0px 6px #00000010;
   max-width: 60ch;
@@ -95,7 +95,7 @@ body.home main {
   top: 0.24ch;
   height: 1.8ch;
   width: 4px;
-  background: #ddd;
+  background: #333;
   margin: auto 0;
   margin-left: 2px;
   animation: blink 1.2s forwards;
@@ -126,13 +126,13 @@ body.home main {
 }
 
 body.home {
-  background: linear-gradient(40deg, #3c5363, #665966);
+  background: linear-gradient(60deg, #f2faff, #fffdfe);
 }
 
 .action {
-  color: white;
+  color: #222;
   text-decoration: none;
-  background: #596e45;
+  background: #a9f2a5;
   display: block;
   width: fit-content;
   padding: .5rem 1rem;
@@ -146,15 +146,18 @@ body.home {
   align-items: center;
   padding: 8px;
   height: 48px;
-  background: #283438;
-  color: white;
+  background: #f0fbff;
+  color: #222;
   margin: 0;
   width: 100%;
   user-select: none;
 }
 
 .title {
-  margin-bottom: 1em;
+  width: 100%;
+  margin-bottom: 1.5em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #444;
 }
 
 .title h1 {
@@ -207,6 +210,7 @@ header a {
   margin: 0 !important;
   height: 36px;
   border-radius: 0;
+  filter: invert(100%);
 }
 
 header nav {
@@ -236,8 +240,8 @@ footer p {
 }
 
 body.home footer p {
-  color: white;
-  border-top: 1px solid white;
+  color: #222;
+  border-top: 1px solid #222;
 }
 
 article > p:first-child {
@@ -370,6 +374,16 @@ table {
   a {
     color: #728ca1;
   }
+  .topbar {
+    background: #283438;
+    color: white;
+  }
+  .header {
+    color: white;
+  }
+  .logo img {
+    filter: unset;
+  }
   .grid a {
     background: #122;
     border: 1px solid #111;
@@ -379,7 +393,20 @@ table {
     color: #ddd;
   }
   footer p {
+    color: white !important;
+    border-top: 1px solid white !important;
+  }
+  body.home {
+    background: linear-gradient(40deg, #3c5363, #665966);
+  }
+  .header h1:after {
+    background: #ddd;
+  }
+  .header .content {
+    background: #0000000d;
+  }
+  .action {
+    background: #596e45;
     color: white;
-    border-top: 1px solid white;
   }
 }
