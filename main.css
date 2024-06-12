@@ -108,10 +108,12 @@ body.home {
   flex-direction: row;
   align-items: center;
   padding: 8px;
+  height: 48px;
   background: #283438;
   color: white;
   margin: 0;
   width: 100%;
+  user-select: none;
 }
 
 .title {
@@ -136,7 +138,7 @@ img {
 }
 
 img:first-child {
-  margin-top: 0;
+  margin-top: 0 !important;
 }
 
 img::after {
@@ -158,6 +160,16 @@ header a {
 
 .logo {
   font-size: 14pt;
+}
+
+.logo a {
+  display: block;
+}
+
+.logo img {
+  margin: 0 !important;
+  height: 36px;
+  border-radius: 0;
 }
 
 header nav {

@@ -2,7 +2,7 @@
 title: About Me
 ---
 
-Hello! I'm Peter. I am currently developing my skills in graphic design and Web programming through developing secure and reliable web apps. Beyond computer programming, I am interested in the arts and classic literature.
+![Rideau Canal](/images/banner.jpg)
 
-{% image 'images/banner.jpg' %}
+Developing secure and reliable apps and Web sites, combining technology with the arts and existential philosophy \[Creative Tech\].
 

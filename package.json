@@ -10,15 +10,15 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "@11ty/eleventy": "^2.0.1"
-  },
   "dependencies": {
+    "@11ty/eleventy": "3.0.0-alpha.13",
     "@11ty/eleventy-img": "^4.0.2",
     "markdown-it": "^14.1.0",
     "markdown-it-anchor": "^8.6.7",
     "markdown-it-attrs": "^4.1.6",
     "sharp": "^0.33.3"
   },
-  "engines": {"node": ">=20.9.0"}
+  "engines": {
+    "node": ">=20.9.0"
+  }
 }
