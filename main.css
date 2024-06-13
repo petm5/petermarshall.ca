@@ -368,14 +368,14 @@ table {
 
 @media (prefers-color-scheme: dark) {
   body {
-    background: #1a2020;
+    background: black;
     color: white;
   }
   a {
-    color: #728ca1;
+    color: #92bce6;
   }
   .topbar {
-    background: #283438;
+    background: #101218;
     color: white;
   }
   .header {
@@ -385,11 +385,11 @@ table {
     filter: unset;
   }
   .grid a {
-    background: #122;
+    background: #101519;
     border: 1px solid #111;
   }
   .grid small {
-    background: #203030;
+    background: #1a1c24;
     color: #ddd;
   }
   footer p {
@@ -397,13 +397,13 @@ table {
     border-top: 1px solid white !important;
   }
   body.home {
-    background: linear-gradient(40deg, #3c5363, #665966);
+    background: linear-gradient(40deg, #615489, #8e6c8d);
   }
   .header h1:after {
     background: #ddd;
   }
   .header .content {
-    background: #0000000d;
+    background: #00000012;
   }
   .action {
     background: #596e45;
@@ -411,5 +411,8 @@ table {
   }
   .title {
     border-bottom: 1px solid white;
+  }
+  body.home .topbar {
+    background: #24262d;
   }
 }
