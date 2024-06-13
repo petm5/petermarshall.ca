@@ -151,6 +151,7 @@ body.home {
   margin: 0;
   width: 100%;
   user-select: none;
+  box-shadow: 0 0 2px #0001;
 }
 
 .title {
@@ -397,13 +398,13 @@ table {
     border-top: 1px solid white !important;
   }
   body.home {
-    background: linear-gradient(40deg, #615489, #8e6c8d);
+    background: linear-gradient(27deg, #202025 0%, #202023 100%);
   }
   .header h1:after {
     background: #ddd;
   }
   .header .content {
-    background: #00000012;
+    background: #ffffff08;
   }
   .action {
     background: #596e45;
