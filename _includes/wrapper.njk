@@ -11,18 +11,13 @@
     <title>{% if title %}{{ title }} - {% endif %}{{ site.title }}</title>
   </head>
   <body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
-      <header class="topbar">
-        <div class="logo">
-          <a href="/"><img src="/images/logo-transparent.svg" alt="{{ site.title }}" eleventy:formats="svg" loading="" /></a>
-        </div>
-        <nav>
-          <ul>
-            {% for item in navItems %}
-            <li><a href="{{ item.href }}" title="{{ item.desc }}">{{ item.name }}</a></li>
-            {% endfor %}
-          </ul>
-        </nav>
-      </header>
+      {% block header %}
+        <header>
+          <div class="logo">
+            <img src="/images/logo-transparent.svg" alt="{{ site.title }}" eleventy:formats="svg" loading="" />
+          </div>
+        </header>
+      {% endblock %}
       <main>
         {% block content %}
           {{ content | safe }}

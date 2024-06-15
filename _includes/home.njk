@@ -1,3 +1,25 @@
 {% extends "wrapper.njk" %}
 
+{% block header %}
+<header>
+  <div class="content">
+    <div class="logo">
+      <img src="/images/logo-transparent.svg" alt="{{ site.title }}" eleventy:formats="svg" loading="" />
+    </div>
+    <h1>{{ site.tagline }}</h1>
+    <p>{{ site.description }}</p>
+    <a class="action" href="#about">Learn More</a>
+  </div>
+</header>
+{% endblock %}
+{% block content %}
+<a id="about"></a>
+<article>
+{{ content | safe }}
+<p>
+  <a class="action" href="/blog">Latest Posts</a>
+</p>
+</article>
+{% endblock %}
+
 {% set bodyClass = "home" %}

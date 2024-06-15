@@ -5,7 +5,7 @@
 {%- block content %}
 <div class="title">
   <h1>{% if title %}{{ title }}{% endif %}</h1>
-  {% if postDate %}<small>Posted {{ postDate }}</small>{% endif %}
+  {% if postDate %}<p>Posted {{ postDate }}</p>{% endif %}
 </div>
 <article>
   {{ content | safe }}
