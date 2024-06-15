@@ -113,6 +113,7 @@ body.home header:after {
   margin: auto;
   border: solid #0005;
   border-width: 0 1.5px 1.5px 0;
+  border-radius: 0 0 2px 0;
   transform: rotate(45deg);
   animation: bob 5s ease-in-out infinite;
 }
