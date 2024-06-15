@@ -48,6 +48,7 @@ body > * + * {
 body.home {
   padding-top: 0;
   align-content: center;
+  min-height: 200svh;
 }
 
 main {
@@ -98,6 +99,28 @@ header h1:after {
 header a {
   animation: slide-in .6s;
   animation-timing-function: ease-out;
+}
+
+body.home header:after {
+  content: "";
+  width: 1.5rem;
+  height: 1.5rem;
+  display: block;
+  position: absolute;
+  bottom: 3rem;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border: solid #0005;
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg);
+  animation: bob 5s ease-in-out infinite;
+}
+
+@keyframes bob {
+  45% { translate: 0 0px; }
+  50% { translate: 0 -2px; }
+  55% { translate: 0 0px; }
 }
 
 @keyframes blink {
@@ -338,5 +361,8 @@ table {
   .action {
     background: #596e45;
     color: white;
+  }
+  body.home header:after {
+    border-color: #fff8;
   }
 }
