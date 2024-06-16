@@ -175,7 +175,7 @@ img {
   border-radius: 9px;
 }
 
-img:first-child {
+article > *:first-child img {
   margin-top: 0 !important;
 }
 
