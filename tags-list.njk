@@ -7,10 +7,8 @@ title: Topics
 <ul class="grid">
 {% for tag in collections.all | getAllTags | filterTagList %}
 	{% set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
-	<li>
-    <a href="{{ tagUrl }}">
-      <p class="tag">{{ tag }}</p>
-    </a>
+	<li class="tag">
+    <a href="{{ tagUrl }}">{{ tag }}</a>
   </li>
 {% endfor %}
 </ul>

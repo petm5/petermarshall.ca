@@ -3,13 +3,6 @@ layout: wrapper.njk
 title: All Posts
 ---
 
-<ul class="grid">
-  {%- for post in collections.posts %}
-  <li>
-    <a href="{{post.url}}">
-      <p>{{post.data.title}}</p>
-      <small>{{post.date | postDate}}</small>
-    </a>
-  </li>
-  {%- endfor %}
-</ul>
+{% set posts = collections.posts %}
+
+{% include "post-list.njk" %}

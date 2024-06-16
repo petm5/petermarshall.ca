@@ -8,16 +8,7 @@ pagination:
 permalink: 'blog{% if pagination.pageNumber > 0 %}/page/{{ pagination.pageNumber }}{% endif %}/index.html'
 ---
 
-<ul class="grid">
-  {% for post in posts %}
-  <li>
-    <a href="{{post.url}}">
-      <p>{{post.data.title}}</p>
-      <small>{{post.date | postDate}}</small>
-    </a>
-  </li>
-  {% endfor %}
-</ul>
+{% include "post-list.njk" %}
 
 <div class="links">
   <p>

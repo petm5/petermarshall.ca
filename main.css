@@ -304,16 +304,45 @@ table {
   display: block;
 }
 
-.grid a {
-  display: block;
+.posts a {
   color: inherit;
   text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 32px #0001;
 }
 
-.grid small {
+.posts p {
+  padding: 12px;
+}
+
+.posts strong {
+  font-size: 16pt;
+  line-height: 1.2;
+  font-weight: lighter;
+}
+
+.posts img, .title img {
+  display: block;
+  width: 100%;
+  height: min(40vw, 40vh);
+  border-radius: 0px;
+  margin: 0px auto !important;
+}
+
+.title img {
+  border-radius: 8px;
+}
+
+.posts small {
   display: block;
   color: #222;
   font-size: 9pt;
+  margin-top: 1ch;
 }
 
 .links {
@@ -357,7 +386,8 @@ table {
     background: #ddd;
   }
   body.home header .content {
-    background: #ffffff08;
+    background: #ffffff05;
+    box-shadow: 0 0 16px #0003;
   }
   .action {
     background: #596e45;
@@ -365,5 +395,10 @@ table {
   }
   body.home header:after {
     border-color: #fff8;
+  }
+  .posts a {
+    background: #202126;
+    border: 1px solid #222;
+    box-shadow: 0 0 16px #0006;
   }
 }
