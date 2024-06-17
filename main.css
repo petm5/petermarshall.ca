@@ -20,11 +20,15 @@ html {
 }
 
 body {
-  --layout-spacing: max(min(6vw, 5rem), 2rem);
+  --layout-spacing: min(2rem, 4vw);
+  --elem-spacing: 2em;
   --side-spacing: clamp(1rem, 5vw, 3rem);
   --navbar-height: 50px;
+  --main-bg-color: white;
+  --post-bg-color: #fefefe;
+  --content-max-width: 95ch;
+  background: var(--main-bg-color);
   padding: 0;
-  padding-top: var(--layout-spacing);
   font-family: 'Roboto', system-ui, sans-serif;
   line-height: 1.5;
   font-size: 15px;
@@ -34,14 +38,33 @@ body {
   width: 100vw;
 }
 
+body.post {
+  background: var(--post-bg-color);
+}
+
+body.post:after {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  z-index: -1;
+  box-shadow: 0 0 16rem #0001;
+}
+
 body > * {
   margin: 0 auto;
   width: 100%;
-  max-width: 95ch;
+  max-width: var(--content-max-width);
   padding: 0 var(--side-spacing);
+  background: var(--main-bg-color);
 }
 
-body > * + * {
+body > * {
   padding-top: var(--layout-spacing);
 }
 
@@ -63,7 +86,7 @@ body.home header {
   height: 100svh;
   flex-shrink: 0;
   color: #222;
-  padding: var(--layout-spacing) 0;
+  padding: var(--elem-spacing) 0;
   background: linear-gradient(60deg, #f2faff, #fffdfe);
   max-width: unset;
 }
@@ -155,38 +178,26 @@ body.home header:after {
 
 .title {
   width: 100%;
-  margin-bottom: min(6vw, 4rem);
+  margin-bottom: var(--layout-spacing);
 }
 
 .title h1 {
-  font-weight: lighter;
   margin-bottom: 8px;
 }
 
-img {
-  max-height: 24rem;
-  max-width: 100%;
-  width: auto;
+article img {
+  width: 100%;
   height: auto;
-  object-fit: cover;
+  max-width: 75ch;
   position: relative;
-  margin: 2.5rem auto !important;
+  margin: var(--layout-spacing) auto !important;
   display: block;
   border-radius: 9px;
+  box-shadow: 0 0 2rem #0001;
 }
 
 article > *:first-child img {
   margin-top: 0 !important;
-}
-
-img::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  box-shadow: 0 0 100px rgba(0,0,0,0.4) inset;
 }
 
 header a {
@@ -203,6 +214,7 @@ header a {
 .logo img {
   display: block;
   margin: 0 !important;
+  width: 36px;
   height: 36px;
   border-radius: 0;
   filter: invert(100%);
@@ -227,7 +239,7 @@ footer p {
 }
 
 footer {
-  margin-bottom: 1em;
+  padding-bottom: 1em;
   color: #555;
   margin-top: auto;
 }
@@ -292,16 +304,18 @@ table {
 .grid {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-gap: .8em;
+  grid-gap: 2.8em;
   padding: 0;
   margin-bottom: 16px;
   place-content: center;
   height: fit-content;
+  margin: var(--layout-spacing) 0;
 }
 
 .grid > li {
   list-style: none;
   display: block;
+  margin: 0;
 }
 
 .posts a {
@@ -313,7 +327,9 @@ table {
   border: 1px solid #eee;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 0 32px #0001;
+  box-shadow: 0 0 8px #0001;
+  margin: auto;
+  max-width: 520px;
 }
 
 .posts p {
@@ -321,16 +337,17 @@ table {
 }
 
 .posts strong {
-  font-size: 16pt;
+  font-size: 13pt;
   line-height: 1.2;
-  font-weight: lighter;
+  font-weight: normal;
 }
 
-.posts img, .title img {
+.posts img {
   display: block;
   width: 100%;
-  height: 40vw;
-  max-height: 14rem;
+  height: auto;
+  aspect-ratio: 7 / 3;
+  object-fit: cover;
   border-radius: 0px;
   margin: 0px auto !important;
 }
@@ -361,9 +378,28 @@ table {
   margin-right: 8px;
 }
 
+@media print {
+  body {
+    --post-bg-color: white;
+    --main-bg-color: white;
+  }
+  body > * {
+    max-width: unset;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  body.post:after {
+    display: none;
+  }
+  header {
+    padding-top: 1ch;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   body {
-    background: #202024;
+    --post-bg-color: #1d1d20;
+    --main-bg-color: #202024;
     color: white;
   }
   a {
