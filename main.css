@@ -329,7 +329,8 @@ table {
 .posts img, .title img {
   display: block;
   width: 100%;
-  height: min(40vw, 40vh);
+  height: 40vw;
+  max-height: 14rem;
   border-radius: 0px;
   margin: 0px auto !important;
 }
