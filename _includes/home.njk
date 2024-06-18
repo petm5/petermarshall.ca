@@ -16,8 +16,10 @@
 <a id="about"></a>
 <article>
 {{ content | safe }}
-<p>
-  <a class="action" href="/blog">Latest Posts</a>
+<p class="actions">
+{% for item in navItems %}
+  <a class="action" href="{{item.href}}">{{item.name}}</a>
+{% endfor %}
 </p>
 </article>
 {% endblock %}

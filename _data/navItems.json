@@ -1,17 +1,10 @@
 [
   {
-    "name": "Blog",
-    "href": "/blog",
-    "desc": "View my latest blog posts"
+    "name": "Latest Posts",
+    "href": "/blog"
   },
   {
-    "name": "About",
-    "href": "/about",
-    "desc": "About Me"
-  },
-  {
-    "name": "Contact",
-    "href": "https://docs.google.com/forms/d/e/1FAIpQLSfTX9pxA_gLbxisY6dIlLgEsUrhpI_Ov-bql1uzFW0sPIPPwQ/viewform?usp=pp_url",
-    "desc": "Contact Me"
+    "name": "Contact Me",
+    "href": "https://docs.google.com/forms/d/e/1FAIpQLSfTX9pxA_gLbxisY6dIlLgEsUrhpI_Ov-bql1uzFW0sPIPPwQ/viewform?usp=pp_url"
   }
 ]
