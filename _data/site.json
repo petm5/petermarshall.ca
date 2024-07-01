@@ -6,5 +6,5 @@
   "baseUrl": "https://petermarshall.ca",
   "robots": "/robots.txt",
   "siteMap": "/sitemap.txt",
-  "favicon": "/images/logo.png"
+  "favicon": "/favicon.png"
 }
