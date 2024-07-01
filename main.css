@@ -87,6 +87,7 @@ body.home header {
   flex-shrink: 0;
   color: #222;
   padding: var(--elem-spacing) 0;
+  margin-bottom: var(--layout-spacing);
   background: linear-gradient(60deg, #f2faff, #fffdfe);
   max-width: unset;
 }
