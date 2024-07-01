@@ -4,12 +4,6 @@
   font-display: block;
 }
 
-@font-face {
-  font-family: 'Roboto';
-  src: local('Roboto Regular'), url('fonts/Roboto-Regular.ttf') format('truetype');
-  font-display: block;
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -29,7 +23,7 @@ body {
   --content-max-width: 95ch;
   background: var(--main-bg-color);
   padding: 0;
-  font-family: 'Roboto', system-ui, sans-serif;
+  font-family: system-ui, sans-serif;
   line-height: 1.5;
   font-size: 15px;
   display: flex;
