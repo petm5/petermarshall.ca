@@ -19,12 +19,13 @@ body {
   --side-spacing: clamp(1rem, 5vw, 3rem);
   --navbar-height: 50px;
   --main-bg-color: white;
+  --faded-color: #333;
   --content-max-width: 95ch;
   background: var(--main-bg-color);
   padding: 0;
   font-family: system-ui, sans-serif;
   line-height: 1.5;
-  font-size: 15px;
+  font-size: 14px;
   display: flex;
   flex-direction: column;
   min-height: 100svh;
@@ -182,10 +183,10 @@ article img {
   height: auto;
   max-width: 75ch;
   position: relative;
-  margin: var(--layout-spacing) auto !important;
+  margin: clamp(1.3ch, 5vw, 2rem) auto !important;
   display: block;
   border-radius: 9px;
-  box-shadow: 0 0 2rem #0001;
+  box-shadow: 0 0 2rem #0002;
 }
 
 article > *:first-child img {
@@ -232,7 +233,7 @@ footer p {
 
 footer {
   padding-bottom: 1em;
-  color: #555;
+  color: var(--faded-color);
   margin-top: auto;
 }
 
@@ -240,12 +241,13 @@ body.home footer {
   color: #222;
 }
 
-article > p:first-child {
-  font-size: 16px
-}
+/* article > p:first-child { */
+  /* font-size: 15px; */
+/* } */
 
 :is(h1, h2, h3) {
   line-height: 1.2;
+  font-family: monospace;
 }
 
 :is(h2, h3):not(:first-child) {
@@ -271,9 +273,9 @@ table {
   box-shadow: 0px 3px 50px black;
 }
 
-article {
-  text-align: justify;
-}
+/* article { */
+  /* text-align: justify; */
+/* } */
 
 main > * > * + * {
   margin-top: 1em;
@@ -304,7 +306,7 @@ table {
   margin: 0 auto;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 640px) {
   .grid {
     grid-template-columns: repeat(1, 1fr);
     max-width: 400px;
@@ -322,7 +324,7 @@ table {
   text-decoration: none;
   display: flex;
   flex-direction: column;
-  background: #fdfdfd;
+  background: #fcfcfc;
   border: 1px solid #eee;
   border-radius: 8px;
   overflow: hidden;
@@ -336,15 +338,31 @@ table {
 
 .posts strong {
   font-weight: normal;
+  font-family: monospace;
+}
+
+.posts .image {
+  display: block;
+  flex: 1;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #eee;
 }
 
 .posts img {
-  display: block;
-  flex: 1;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: 100%;
   object-fit: cover;
   margin: 0px auto !important;
+  transition: transform .4s;
+}
+
+.posts a:hover img {
+  transform: scale(110%);
+}
+
+.posts a:hover strong {
+  text-decoration: underline;
 }
 
 .title img {
@@ -353,9 +371,14 @@ table {
 
 .posts small {
   display: block;
-  color: #222;
+  color: var(--faded-color);
   font-size: 9pt;
   margin-top: 8px;
+}
+
+.date::before {
+  content: "🕒";
+  margin-right: 1ch;
 }
 
 .links {
@@ -393,6 +416,7 @@ table {
 @media (prefers-color-scheme: dark) {
   body {
     --main-bg-color: #202024;
+    --faded-color: #ddd;
     color: white;
   }
   a {
@@ -405,12 +429,6 @@ table {
   }
   .logo img {
     filter: unset;
-  }
-  .grid small {
-    color: #ddd;
-  }
-  footer p {
-    color: white;
   }
   header h1:after {
     background: #ddd;
@@ -434,5 +452,8 @@ table {
     background: #202126;
     border: 1px solid #222;
     box-shadow: 0 0 16px #0006;
+  }
+  .posts .image {
+    background: #333;
   }
 }
