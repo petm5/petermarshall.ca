@@ -14,12 +14,11 @@ html {
 }
 
 body {
-  --layout-spacing: min(2rem, 4vw);
+  --layout-spacing: clamp(1rem, 6vw, 2rem);
   --elem-spacing: 2em;
   --side-spacing: clamp(1rem, 5vw, 3rem);
   --navbar-height: 50px;
   --main-bg-color: white;
-  --post-bg-color: #fefefe;
   --content-max-width: 95ch;
   background: var(--main-bg-color);
   padding: 0;
@@ -30,24 +29,6 @@ body {
   flex-direction: column;
   min-height: 100svh;
   width: 100vw;
-}
-
-body.post {
-  background: var(--post-bg-color);
-}
-
-body.post:after {
-  content: "";
-  display: block;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  max-width: var(--content-max-width);
-  margin: 0 auto;
-  z-index: -1;
-  box-shadow: 0 0 16rem #0001;
 }
 
 body > * {
@@ -72,6 +53,10 @@ main {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
+}
+
+header {
+  padding-top: var(--layout-spacing);
 }
 
 body.home header {
@@ -310,13 +295,20 @@ table {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-gap: 2.8em;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2.8em 2rem;
   padding: 0;
   margin-bottom: 16px;
   place-content: center;
   height: fit-content;
-  margin: var(--layout-spacing) 0;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+    max-width: 400px;
+  }
 }
 
 .grid > li {
@@ -330,32 +322,28 @@ table {
   text-decoration: none;
   display: flex;
   flex-direction: column;
-  background: white;
+  background: #fdfdfd;
   border: 1px solid #eee;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 0 8px #0001;
-  margin: auto;
-  max-width: 520px;
+  min-height: 16rem;
 }
 
 .posts p {
-  padding: 12px;
+  padding: 16px;
 }
 
 .posts strong {
-  font-size: 13pt;
-  line-height: 1.2;
   font-weight: normal;
 }
 
 .posts img {
   display: block;
+  flex: 1;
   width: 100%;
-  height: auto;
-  aspect-ratio: 7 / 3;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
-  border-radius: 0px;
   margin: 0px auto !important;
 }
 
@@ -367,7 +355,7 @@ table {
   display: block;
   color: #222;
   font-size: 9pt;
-  margin-top: 1ch;
+  margin-top: 8px;
 }
 
 .links {
@@ -387,7 +375,6 @@ table {
 
 @media print {
   body {
-    --post-bg-color: white;
     --main-bg-color: white;
   }
   body > * {
@@ -405,7 +392,6 @@ table {
 
 @media (prefers-color-scheme: dark) {
   body {
-    --post-bg-color: #1d1d20;
     --main-bg-color: #202024;
     color: white;
   }

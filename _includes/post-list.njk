@@ -2,7 +2,9 @@
   {% for post in posts %}
   <li>
     <a href="{{post.url}}">
-      {% if post.data.featuredImage %}<img src="{{post.data.featuredImage}}" alt="" />{% endif %}
+      {%- if post.data.featuredImage %}
+      <img src="{{post.data.featuredImage}}" alt="" />
+      {% endif -%}
       <p>
         <strong>{{post.data.title}}</strong>
         <small>{{post.date | postDate}}</small>
