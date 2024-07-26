@@ -1,0 +1,32 @@
+.navbar {
+  width: 100vw;
+  background: var(--navbar-bg);
+  padding: 4px 10px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar .logo {
+  display: inline-block;
+}
+
+.navbar nav {
+  display: inline-block;
+  margin-left: auto;
+}
+
+.navbar nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.navbar nav li {
+  display: inline;
+  font-size: 11pt;
+  margin: 0 3px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}

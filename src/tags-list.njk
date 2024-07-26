@@ -1,14 +1,9 @@
 ---
-layout: wrapper.njk
 permalink: /tags/
 title: Topics
 ---
 
-<ul class="grid">
 {% for tag in collections.all | getAllTags | filterTagList %}
 	{% set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
-	<li class="tag">
-    <a href="{{ tagUrl }}">{{ tag }}</a>
-  </li>
+  <span class="tag"><a href="{{ tagUrl }}">{{ tag }}</a></span>
 {% endfor %}
-</ul>

@@ -1,0 +1,7 @@
+<p class="actions">
+{%- for item in navItems %}
+  {%- if item.desc %}
+    <a class="action" href="{{item.href}}">{{item.desc}}</a>
+  {%- endif %}
+{%- endfor %}
+</p>

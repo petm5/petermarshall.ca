@@ -1,0 +1,32 @@
+@keyframes slide-in {
+  from {
+    transform: translateX(-2px);
+    opacity: 0.9;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 1em;
+}
+
+.action {
+  color: white;
+  text-decoration: none;
+  background: var(--action-color);
+  display: inline-block;
+  width: max-content;
+  padding: .5rem 1rem;
+  border-radius: 6px;
+  box-shadow: 0 0 4px #0001;
+}
+
+.actions > * + * {
+  color: inherit;
+  background: var(--secondary-color);
+}

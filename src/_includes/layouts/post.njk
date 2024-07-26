@@ -1,0 +1,22 @@
+---
+layout: wrapper.njk
+bodyClass: post
+---
+
+{% set postDate = page.date | postDate %}
+
+<div class="title">
+  <h1>{% if title %}{{ title }}{% endif %}</h1>
+  {% if postDate %}<p class="date">{{ postDate }}</p>{% endif %}
+</div>
+
+{{ content | safe }}
+
+{%- set dtags = tags | filterTagList %}
+{%- if dtags | length %}
+<div class="links">
+{%- for tag in dtags %}
+  <span class="tag"><a href="/tags/{{ tag | slugify }}">{{ tag }}</a></span>
+{%- endfor %}
+  </div>
+{%- endif %}

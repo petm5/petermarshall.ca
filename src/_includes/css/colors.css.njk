@@ -1,0 +1,21 @@
+body {
+  --main-bg-color: white;
+  --faded-color: #333;
+  --action-color: {{ colors.light.action }};
+  --secondary-color: {{ colors.light.secondary }};
+  --link-color: #156974;
+  --navbar-bg: {{ colors.theme }};
+  color: #222;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    --main-bg-color: #202024;
+    --faded-color: #ddd;
+    --link-color: #92bce6;
+    --action-color: {{ colors.dark.action }};
+    --secondary-color: {{ colors.dark.secondary }};
+    --navbar-bg: #223;
+    color: white;
+  }
+}

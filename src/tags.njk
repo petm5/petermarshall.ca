@@ -1,5 +1,4 @@
 ---
-layout: wrapper.njk
 pagination:
   data: collections
   size: 1
@@ -13,5 +12,5 @@ eleventyComputed:
 ---
 
 {%- set posts = collections[ tag ] %}
- 
-{% include "post-list.njk" %}
+
+{% include "components/post-grid.njk" %}

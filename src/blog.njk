@@ -1,5 +1,4 @@
 ---
-layout: wrapper.njk
 title: Blog
 pagination:
   data: collections.posts
@@ -8,21 +7,11 @@ pagination:
 permalink: 'blog{% if pagination.pageNumber > 0 %}/page/{{ pagination.pageNumber }}{% endif %}/index.html'
 ---
 
-{% include "post-list.njk" %}
+{% include "components/post-grid.njk" %}
 
 <div class="links">
   <p>
-  {% if pagination.href.previous %}
-  <a href=" {{ pagination.href.previous }}">Previous</a>
-  {% else %}
-  Previous
-  {% endif %} 
-  - 
-  {% if pagination.href.next %}
-  <a href=" {{ pagination.href.next }}">Next</a>
-  {% else %}
-  Next
-  {% endif %}
+    {% include "components/pagination.njk" %}
   </p>
   <p>
     <a href="/tags">Topics</a>

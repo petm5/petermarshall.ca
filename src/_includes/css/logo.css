@@ -1,0 +1,22 @@
+.logo a {
+  display: inline-block;
+}
+
+.logo img {
+  display: block;
+  margin: 0 !important;
+  width: 36px;
+  height: 36px;
+  border-radius: 0;
+  filter: invert(100%);
+}
+
+@media (prefers-color-scheme: dark) {
+  .logo img {
+    filter: unset;
+  }
+}
+
+.navbar .logo img {
+  filter: unset;
+}

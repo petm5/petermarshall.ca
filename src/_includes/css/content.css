@@ -1,0 +1,95 @@
+main {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.title {
+  width: 100%;
+  margin-bottom: 0.4ch;
+}
+
+.title h1 {
+  margin-bottom: 8px;
+}
+
+main img {
+  width: 100%;
+  height: auto;
+  max-width: 75ch;
+  position: relative;
+  margin: clamp(1.3ch, 5vw, 2rem) auto !important;
+  display: block;
+  border-radius: 9px;
+  box-shadow: 0 0 2rem #0002;
+}
+
+main > *:first-child img {
+  margin-top: 0 !important;
+}
+
+:is(h1, h2, h3) {
+  line-height: 1.2;
+  font-family: monospace;
+}
+
+:is(h2, h3):not(:first-child) {
+  margin-top: 2em;
+}
+
+:is(h1, h2, h3) > a {
+  text-decoration: none;
+  color: unset;
+  display: block;
+  width: 100%;
+}
+
+:is(h1, h2, h3) > a:hover {
+  text-decoration: underline;
+}
+
+table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+  max-width: fit-content;
+  box-shadow: 0px 3px 50px black;
+}
+
+main > * + * {
+  margin-top: 1em;
+}
+
+a {
+  color: var(--link-color);
+  text-underline-offset: 0.15em;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+:is(td, th) {
+  padding: 6px 10px;
+  border: 1px solid;
+}
+
+.date::before {
+  content: "🕒";
+  margin-right: 1ch;
+}
+
+.links {
+  padding-top: 1rem;
+  user-select: none;
+  margin-top: auto;
+}
+
+.links > * {
+  margin-right: 10px;
+}
+
+.tag::before {
+  content: "🏷️";
+  margin-right: 8px;
+}

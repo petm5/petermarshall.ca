@@ -10,15 +10,14 @@ const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.setLibrary('md', markdown)
-  eleventyConfig.addPassthroughCopy("main.css")
-  eleventyConfig.addPassthroughCopy("favicon.ico")
-  eleventyConfig.addPassthroughCopy({"images/logo.png": "favicon.png"})
-  eleventyConfig.addPassthroughCopy("fonts")
+  eleventyConfig.addPassthroughCopy("src/main.css")
+  eleventyConfig.addPassthroughCopy("src/favicon.ico")
+  eleventyConfig.addPassthroughCopy("src/assets")
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
 		extensions: "html",
     widths: ["auto"],
     formats: ['avif'],
-    urlPath: '/assets/img/',
+    urlPath: '/assets/',
     widths: [144, 240, 460, 768, 1024],
 		defaultAttributes: {
 			loading: "lazy",
@@ -42,6 +41,11 @@ module.exports = function(eleventyConfig) {
 		return (tags || []).filter(tag => ["all", "nav", "post", "posts"].indexOf(tag) === -1)
 	})
 	eleventyConfig.addCollection('posts', collection => {
-    return [...collection.getFilteredByGlob('./blog/*.md')].reverse()
+    return [...collection.getFilteredByGlob('./src/blog/*.md')].reverse()
   })
+  return {
+  	dir: {
+      input: 'src',
+    },
+  };
 };

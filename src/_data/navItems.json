@@ -1,10 +1,12 @@
 [
   {
-    "name": "Latest Posts",
+    "name": "Blog",
+    "desc": "Latest Posts",
     "href": "/blog"
   },
   {
-    "name": "Contact Me",
+    "name": "Contact",
+    "desc": "Contact Me",
     "href": "https://docs.google.com/forms/d/e/1FAIpQLSfTX9pxA_gLbxisY6dIlLgEsUrhpI_Ov-bql1uzFW0sPIPPwQ/viewform?usp=pp_url"
   }
 ]
