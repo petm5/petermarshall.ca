@@ -11,8 +11,8 @@ const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
 module.exports = function(eleventyConfig) {
   eleventyConfig.setLibrary('md', markdown)
   eleventyConfig.addPassthroughCopy("src/main.css")
-  eleventyConfig.addPassthroughCopy("src/favicon.ico")
   eleventyConfig.addPassthroughCopy("src/assets")
+  eleventyConfig.addPassthroughCopy({"src/assets/logo.png": "/favicon.png"})
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
 		extensions: "html",
     widths: ["auto"],
