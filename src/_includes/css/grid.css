@@ -27,11 +27,10 @@
   text-decoration: none;
   display: flex;
   flex-direction: column;
-  background: #fcfcfc;
-  border: 1px solid #eee;
-  border-radius: 8px;
+  background: #fdfdfd;
+  border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 0 8px #0001;
+  box-shadow: 0 0 2rem #0002;
   min-height: 16rem;
 }
 
@@ -41,6 +40,7 @@
 
 .posts strong {
   font-weight: normal;
+  font-size: 14px;
 }
 
 .posts .image {
@@ -49,6 +49,7 @@
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background: #eee;
+  box-shadow: 0 0 12px #0002; 
 }
 
 .posts img {

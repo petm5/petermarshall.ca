@@ -1,17 +1,14 @@
-
-/* @media print { */
-  /* body { */
-    /* --main-bg-color: white; */
-  /* } */
-  /* body > * { */
-    /* max-width: unset; */
-    /* padding-left: 0; */
-    /* padding-right: 0; */
-  /* } */
-  /* body.post:after { */
-    /* display: none; */
-  /* } */
-  /* header { */
-    /* padding-top: 1ch; */
-  /* } */
-/* } */
+@media print {
+  * {
+    color: black !important;
+    background: unset !important;
+  }
+  body > * {
+    max-width: unset;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .navbar {
+    display: none;
+  }
+}
