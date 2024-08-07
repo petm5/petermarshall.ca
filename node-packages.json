@@ -1,0 +1,9 @@
+[
+  { "@11ty/eleventy": "canary" },
+  "@11ty/eleventy-img",
+  "markdown-it",
+  "markdown-it-attrs",
+  "markdown-it-anchor",
+  "sharp",
+  "node-addon-api"
+]
