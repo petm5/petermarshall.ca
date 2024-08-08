@@ -19,8 +19,8 @@
           ];
         };
         packages = rec {
-          petms-website = pkgs.callPackage ./build.nix {};
-          # petms-website-docker = pkgs.dockerTools.buildLayeredImage (pkgs.callPackage  ./docker-build.nix {});
+          petms-website = pkgs.callPackage ./pkgs/petms-website.nix {};
+          petms-website-docker = pkgs.callPackage  ./pkgs/docker-webserver.nix { htmlPages = petms-website; };
           default = petms-website;
         };
       }

@@ -1,18 +1,18 @@
-{ lib, pkgs, ... }: let
-
-  htmlPages = pkgs.callPackage ./build.nix {};
+{ lib, pkgs, htmlPages, ... }: let
 
   nginxConf = pkgs.writeText "nginx.conf" ''
-    default_type application/octet-stream;
-    gzip on;
-    gzip_types text/plain;
     daemon off;
     error_log /dev/stdout info;
+    worker_processes 4;
+    user nobody nobody;
+    pid /dev/null;
+    events {}
     http {
+      default_type application/octet-stream;
       access_log /dev/stdout;
       server {
-        listen localhost
-        server_name petermarshall.ca
+        listen 80;
+        index index.html;
         location / {
           root ${htmlPages};
           expires 10m;
@@ -27,16 +27,22 @@
     }
   '';
 
-in {
+in pkgs.dockerTools.buildLayeredImage {
 
   name = "petermarshall.ca";
+  tag = "latest";
 
-  contents = [ pkgs.nginx htmlPages ];
+  contents = [ pkgs.fakeNss pkgs.nginx htmlPages ];
+
+  extraCommands = ''
+    mkdir -p tmp/nginx_client_body
+    mkdir -p var/log/nginx
+  '';
 
   config = {
-    Cmd = [ "${pkgs.nginx}/bin/nginx -c ${nginxConf}" ];
+    Cmd = [ "${pkgs.nginx}/bin/nginx" "-c" nginxConf ];
     ExposedPorts = {
-      "8000/tcp" = { };
+      "80/tcp" = { };
     };
   };
 
