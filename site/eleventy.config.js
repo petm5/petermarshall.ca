@@ -8,6 +8,11 @@ const markdown = require('markdown-it')({
 
 const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
 
+const htmlmin = require('html-minifier');
+
+const CleanCSS = require("clean-css");
+const cssmin = new CleanCSS({});
+
 module.exports = function(eleventyConfig) {
   eleventyConfig.setLibrary('md', markdown)
   eleventyConfig.addPassthroughCopy("src/main.css")
@@ -43,6 +48,19 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.addCollection('posts', collection => {
     return [...collection.getFilteredByGlob('./src/blog/*.md')].reverse()
   })
+  eleventyConfig.addTransform('htmlmin', function(content, outputPath) {
+  	if (!outputPath.endsWith('.html')) return content;
+
+  	return htmlmin.minify(content, {
+  		useShortDoctype: true,
+  		removeComments: false,
+  		collapseWhitespace: true
+  	})
+  })
+  eleventyConfig.addFilter('cssmin', function(code) {
+  	return cssmin.minify(code).styles
+  })
+  eleventyConfig.addGlobalData('gitRev', process.env.GIT_REVISION.substr(0, 7))
   return {
   	dir: {
       input: 'src',

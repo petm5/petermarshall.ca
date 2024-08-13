@@ -1,9 +1,13 @@
-footer p {
-  font-size: 9pt;
-}
-
 footer {
   padding-bottom: 1em !important;
   color: var(--faded-color);
   margin-top: auto !important;
+}
+
+footer > * {
+  font-size: 9pt;
+}
+
+footer .rev::before {
+  content: " - ";
 }

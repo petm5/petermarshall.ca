@@ -1,16 +1,21 @@
 ---
 layout:
 eleventyExcludeFromCollections: true
-permalink: main.css
+eleventyComputed:
+  permalink: '/assets/main.{{ gitRev }}.css'
 ---
 
-{% include "css/colors.css.njk" %}
-{% include "css/global.css" %}
-{% include "css/navbar.css" %}
-{% include "css/content.css" %}
-{% include "css/footer.css" %}
-{% include "css/buttons.css" %}
-{% include "css/home.css" %}
-{% include "css/logo.css" %}
-{% include "css/grid.css" %}
-{% include "css/print.css" %}
+{%- set css %}
+  {% include "css/colors.css.njk" %}
+  {% include "css/global.css" %}
+  {% include "css/navbar.css" %}
+  {% include "css/content.css" %}
+  {% include "css/footer.css" %}
+  {% include "css/buttons.css" %}
+  {% include "css/home.css" %}
+  {% include "css/logo.css" %}
+  {% include "css/grid.css" %}
+  {% include "css/print.css" %}
+{% endset -%}
+
+{{ css | cssmin | safe }}
