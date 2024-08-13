@@ -11,7 +11,7 @@ jobs:
       with:
         nix_path: nixpkgs=channel:nixos-unstable
     - uses: DeterminateSystems/magic-nix-cache-action@v2
-    - run: nix build .#server -o petms-website-docker
+    - run: nix build .#dockerImage -o petms-website-docker
     - uses: ncipollo/release-action@v1
       with:
         artifacts: "petms-website-docker"
