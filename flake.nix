@@ -12,16 +12,26 @@
         pkgs = import nixpkgs {
           inherit system;
         };
-      in {
+        siteName = "petermarshall.ca";
+      in rec {
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
             nodejs
           ];
         };
         packages = rec {
-          petms-website = pkgs.callPackage ./pkgs/petms-website.nix {};
-          petms-website-docker = pkgs.callPackage  ./pkgs/docker-webserver.nix { htmlPages = petms-website; };
-          default = petms-website;
+          htmlPages = pkgs.callPackage ./pkgs/html-pages.nix { inherit siteName; };
+          dockerImage = pkgs.callPackage ./pkgs/docker-webserver.nix { inherit siteName htmlPages; };
+          default = dockerImage;
+        };
+        apps.server = let
+          runner = pkgs.writeScript "run-docker-image" ''
+            ${pkgs.podman}/bin/podman load -i ${packages.dockerImage}
+            ${pkgs.podman}/bin/podman run -p 127.0.0.1:8080:80 localhost/${siteName}:latest
+          '';
+        in {
+          type = "app";
+          program = "${runner}";
         };
       }
     );

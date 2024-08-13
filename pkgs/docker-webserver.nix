@@ -1,4 +1,4 @@
-{ lib, pkgs, htmlPages, ... }: let
+{ lib, pkgs, siteName, htmlPages, ... }: let
 
   nginxConf = pkgs.writeText "nginx.conf" ''
     daemon off;
@@ -8,10 +8,12 @@
     pid /dev/null;
     events {}
     http {
+      include ${pkgs.nginx}/conf/mime.types;
       default_type application/octet-stream;
       access_log /dev/stdout;
+      absolute_redirect off;
       server {
-        listen 80;
+        listen 80 default_server;
         index index.html;
         location / {
           root ${htmlPages};
@@ -29,7 +31,7 @@
 
 in pkgs.dockerTools.buildLayeredImage {
 
-  name = "petermarshall.ca";
+  name = siteName;
   tag = "latest";
 
   contents = [ pkgs.fakeNss pkgs.nginx htmlPages ];

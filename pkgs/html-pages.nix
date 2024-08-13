@@ -1,7 +1,7 @@
-{ stdenv, lib, pkgs, ... }: let
+{ stdenv, lib, pkgs, siteName, ... }: let
   node-addon-api = pkgs.callPackage ./node-addon-api {};
 in pkgs.buildNpmPackage {
-  name = "petermarshall.ca";
+  name = siteName;
   src = ../site;
   npmDepsHash = "sha256-3eHYAqrxQ8W+p4YrG5lCnt8UHbmJV0SvJpsWqbzD4NY=";
   buildInputs = with pkgs; [
@@ -13,7 +13,8 @@ in pkgs.buildNpmPackage {
     pango
     node-addon-api
   ];
-  npmFlags = [ "--cpu=wasm32" ];
+  npmPackFlags = [ "--ignore-scripts" ];
+  dontNpmInstall = true;
   buildPhase = ''
     npx @11ty/eleventy --output=$out
   '';
