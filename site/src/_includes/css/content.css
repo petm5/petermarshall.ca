@@ -13,10 +13,11 @@ main {
   margin-bottom: 8px;
 }
 
-main img {
-  width: 100%;
+main > p img {
+  width: auto;
   height: auto;
-  max-width: 75ch;
+  max-width: min(100%, 75ch);
+  max-height: 80vh;
   position: relative;
   margin: clamp(1.3ch, 5vw, 2rem) auto !important;
   display: block;
