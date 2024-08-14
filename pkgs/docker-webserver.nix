@@ -3,18 +3,13 @@
   h2oConf = pkgs.writeText "h2o-config" ''
     hosts:
       "${siteName}":
-        listen: &listen
-          port: 443
-          ssl:
-            certificate-file: /keys/${siteName}.crt
-            key-file: /keys/${siteName}.key
-            minimum-version: TLSv1.3
-            ocsp-update-interval: 0
+        listen:
+          port: 80
         paths:
           /:
-            header.add: "link: </assets/main.${lib.substring 0 7 rev}.css>; rel=preload; as=style"
-            header.add: "Strict-Transport-Security: max-age=63072000"
-            header.add: "X-Message: secret"
+            header.add: "Link: </assets/main.${lib.substring 0 7 rev}.css>; rel=preload; as=stylesheet"
+            header.add: "X-Rat-Says: Squeek!"
+            header.add: "X-Powered-By: Cheese"
             expires: 10 minutes
             file.dir: ${htmlPages}
           /assets:
@@ -40,9 +35,7 @@
     user: nobody
     access-log: /dev/stdout
     error-log: /dev/stderr
-    http2-reprioritize-blocking-assets: ON
     compress: ON
-    send-informational: all
     send-server-name: OFF
   '';
 
@@ -53,7 +46,7 @@
 
     PID=$!
 
-    trap "kill -SIGQUIT $PID" SIGINT
+    trap "kill -SIGTERM $PID" SIGINT
 
     wait $PID
   '';
