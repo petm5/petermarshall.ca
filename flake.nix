@@ -28,7 +28,7 @@
         apps.server = let
           runner = pkgs.writeScript "run-docker-image" ''
             ${pkgs.podman}/bin/podman load -i ${packages.dockerImage}
-            ${pkgs.podman}/bin/podman run -p 127.0.0.1:8080:80 localhost/${siteName}:latest
+            ${pkgs.podman}/bin/podman run --pod=petermarshall localhost/${siteName}:latest
           '';
         in {
           type = "app";

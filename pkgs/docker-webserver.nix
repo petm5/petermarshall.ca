@@ -12,6 +12,9 @@
             header.add: "X-Powered-By: Cheese"
             expires: 10 minutes
             file.dir: ${htmlPages}
+            error-doc:
+              status: 404
+              url: /404.html
           /assets:
             expires: 1 year
             file.mime.settypes:
@@ -31,6 +34,8 @@
               "text/css":
                 extensions: [ ".css" ]
             file.dir: ${htmlPages}/assets
+          /contact/submit:
+            proxy.reverse.url: "http://127.0.0.1:8080"
 
     user: nobody
     access-log: /dev/stdout
