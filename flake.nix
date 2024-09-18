@@ -12,23 +12,32 @@
         pkgs = import nixpkgs {
           inherit system;
         };
-        siteName = "petermarshall.ca";
-        rev = "${self.rev or self.dirtyRev or "dirty"}";
+        node-addon-api = pkgs.callPackage ./pkgs/node-addon-api {};
+        environment = pkgs.buildEnv {
+          name = "site-runtime-deps";
+          paths = with pkgs; [
+            bash
+            nodejs
+            vips
+            libsecret
+            pixman
+            cairo
+            pango
+            node-addon-api
+          ];
+        };
       in rec {
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
             nodejs
           ];
         };
-        packages = rec {
-          htmlPages = pkgs.callPackage ./pkgs/html-pages.nix { inherit siteName rev; };
-          dockerImage = pkgs.callPackage ./pkgs/docker-webserver.nix { inherit siteName htmlPages rev; };
-          default = dockerImage;
-        };
-        apps.server = let
-          runner = pkgs.writeScript "run-docker-image" ''
-            ${pkgs.podman}/bin/podman load -i ${packages.dockerImage}
-            ${pkgs.podman}/bin/podman run --pod=petermarshall localhost/${siteName}:latest
+        apps.eleventy = let
+          runner = pkgs.writeScript "build" ''
+            export PATH=${environment}/bin
+            cd ./site
+            npm install
+            npx @11ty/eleventy "$@"
           '';
         in {
           type = "app";
