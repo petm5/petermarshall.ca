@@ -19,9 +19,26 @@ header {
   grid-template-columns: repeat(2, 1fr);
   flex-shrink: 0;
   flex-grow: 1;
-  padding: var(--elem-spacing) 64px;
+  padding: var(--elem-spacing) 32px;
   max-width: 80rem;
   margin: 0 auto;
+}
+
+@media (max-width: 1200px) {
+  .intro-section {
+    grid-template-columns: 1fr;
+    max-width: 40rem;
+    overflow: hidden;
+  }
+  .intro-section div {
+    grid-area: 1 / 1;
+  }
+  .intro-section div:not(:has(video)) {
+    z-index: 1;
+  }
+  .intro-section div:has(video) {
+    filter: blur(12px);
+  }
 }
 
 .intro-section div {
@@ -47,8 +64,15 @@ header {
   font-weight: 400;
 }
 
+@media (max-width: 600px) {
+  .intro-section .content h1 {
+    font-size: 3rem;
+  }
+}
+
 .intro-section video {
-  width: 550px;
+  width: 100%;
+  max-width: 550px;
   pointer-events: none;
 }
 
