@@ -32,6 +32,9 @@ main > *:first-child img {
 :is(h1, h2, h3) {
   line-height: 1.2;
   font-family: monospace;
+  background: linear-gradient(90deg, #fff 0%, #ddd 100%);
+  background-clip: text;
+  color: transparent;
 }
 
 :is(h2, h3):not(:first-child) {

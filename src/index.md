@@ -3,7 +3,7 @@ layout: layouts/home.njk
 actionText: Learn More
 ---
 
-# Let's Get Building ⚡
+# Let's get building.
 
 ![Rideau Canal](/assets/banner.jpg)
 

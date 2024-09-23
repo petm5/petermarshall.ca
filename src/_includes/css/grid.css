@@ -27,11 +27,12 @@
   text-decoration: none;
   display: flex;
   flex-direction: column;
-  background: #fdfdfd;
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 0 2rem #0002;
   min-height: 16rem;
+  background: #060606;
+  border: 1px solid #020202;
+  box-shadow: 0 0 16px #0006;
 }
 
 .posts p {
@@ -40,7 +41,7 @@
 
 .posts strong {
   font-weight: normal;
-  font-size: 14px;
+  font-size: inherit;
 }
 
 .posts .image {
@@ -82,9 +83,6 @@
 
 @media (prefers-color-scheme: dark) {
   .posts a {
-    background: #202126;
-    border: 1px solid #222;
-    box-shadow: 0 0 16px #0006;
   }
   .posts .image {
     background: #333;

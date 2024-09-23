@@ -1,0 +1,51 @@
+header {
+  min-height: 3.5rem;
+}
+
+.navbar {
+  width: 100vw;
+  height: 3.5rem;
+  display: flex;
+  background: #1118;
+  border-bottom: 1px solid #eee2;
+  backdrop-filter: blur(10px);
+  position: fixed;
+  z-index: 2;
+  color: #dee;
+}
+
+.navbar .content {
+  width: 100%;
+  max-width: 80vw;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.navbar .logo {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.navbar nav {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.navbar nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.navbar nav li {
+  display: inline;
+  font-size: 15px;
+  margin-left: 1.25rem;
+}
+
+.navbar a {
+  color: inherit;
+  text-decoration: none;
+}

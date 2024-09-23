@@ -13,17 +13,34 @@
   display: flex;
   flex-direction: column;
   grid-row-gap: 1em;
+  margin-top: 32px !important;
 }
 
 .action {
-  color: white;
+  color: black;
+  font-size: 1rem;
+  font-weight: 600;
   text-decoration: none;
+  display: flex;
+  align-items: center;
   background: var(--action-color);
-  display: inline-block;
   width: max-content;
-  padding: .5rem 1rem;
-  border-radius: 6px;
+  height: 2.5rem;
+  padding-left: 20px;
+  padding-right: 8px;
+  border-radius: 100px;
   box-shadow: 0 0 4px #0001;
+  font-family: sans-serif;
+}
+
+.action::after {
+  content: "›";
+  width: 24px;
+  height: 24px;
+  font-size: 1.5rem;
+  line-height: 20px;
+  text-align: center;
+  color: #777;
 }
 
 .actions > * + * {
