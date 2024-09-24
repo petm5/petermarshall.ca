@@ -5,7 +5,8 @@ body.home {
 body.home header {
   display: flex;
   flex-direction: column;
-  height: 100svh;
+  height: fit-content;
+  min-height: 100svh;
   background: linear-gradient(34deg, #000 0%, #0e0e0e 100%);
 }
 
@@ -22,13 +23,13 @@ header {
   padding: var(--elem-spacing) 32px;
   max-width: 80rem;
   margin: 0 auto;
+  position: relative;
 }
 
 @media (max-width: 1200px) {
   .intro-section {
     grid-template-columns: 1fr;
     max-width: 40rem;
-    overflow: hidden;
   }
   .intro-section div {
     grid-area: 1 / 1;
