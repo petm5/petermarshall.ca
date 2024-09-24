@@ -81,8 +81,8 @@ header {
 }
 
 .intro-section video {
-  width: 100%;
-  max-width: 550px;
+  max-width: 100%;
+  width: 550px;
   pointer-events: none;
   animation: fade-in 1.2s;
   animation-timing-function: ease;
