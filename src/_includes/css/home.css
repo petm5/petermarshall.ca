@@ -24,6 +24,13 @@ header {
   max-width: 80rem;
   margin: 0 auto;
   position: relative;
+  animation: zoom-in 1.8s;
+  animation-timing-function: ease;
+}
+
+@keyframes zoom-in {
+  0% { transform: translateY(10px); filter: opacity(0) }
+  100% {}
 }
 
 @media (max-width: 1200px) {
@@ -63,6 +70,8 @@ header {
   font-size: 4.5rem;
   font-family: sans-serif;
   font-weight: 400;
+  text-shadow: -1px -1px 0 #fff3, 1px 1px 0 #0002;
+  -webkit-text-stroke: .4px #fff8;
 }
 
 @media (max-width: 600px) {
@@ -75,6 +84,13 @@ header {
   width: 100%;
   max-width: 550px;
   pointer-events: none;
+  animation: fade-in 1.2s;
+  animation-timing-function: ease;
+}
+
+@keyframes fade-in {
+  10% { filter: opacity(0); transform: scale(0.7) }
+  100% {  }
 }
 
 .intro-section h1:after {
@@ -82,14 +98,15 @@ header {
   display: inline-block;
   position: relative;
   top: 0.24ch;
-  height: 1.8ch;
-  width: 4px;
+  height: 1em;
+  width: 2px;
   margin: auto 0;
   margin-left: 2px;
   animation: blink 1.2s forwards;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-  background: #ddd;
+  background: #999;
+  box-shadow: 0 0 2px #fff2;
 }
 
 .intro-section:after {
@@ -122,4 +139,14 @@ header {
   50% { opacity: 1 }
   95% { opacity: 1 }
   to { opacity: 0 }
+}
+
+body.home .navbar {
+  animation: slide-down 0.8s;
+  animation-timing-function: ease;
+}
+
+@keyframes slide-down {
+  0% { transform: translateY(-4px); filter: opacity(0) }
+  100% {}
 }
