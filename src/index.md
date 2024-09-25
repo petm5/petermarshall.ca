@@ -1,6 +1,7 @@
 ---
 layout: layouts/home.njk
 actionText: Learn More
+description: Explore the world of creating digital experiences that resonate deeply with end users.
 ---
 
 # Let's get building.
