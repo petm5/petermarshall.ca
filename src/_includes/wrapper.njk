@@ -2,13 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <title>{% if title %}{{ title }} - {% endif %}{{ site.title }}</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% if description %}<meta name="description" content="{{ description }}" />{% endif %}
-    <link rel="stylesheet" href="/assets/main.{{ gitRev }}.css" />
-    <link rel="icon" href="{{ site.favicon }}" sizes="any">
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="{{ colors.primary }}" />
-    <title>{% if title %}{{ title }} - {% endif %}{{ site.title }}</title>
+
+    <link rel="preload" href="/assets/main.{{ gitRev }}.css" as="style" />
+
+    <link rel="stylesheet" href="/assets/main.{{ gitRev }}.css" />
+    <link rel="icon" href="{{ site.favicon }}" sizes="any">
   </head>
   <body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
     <header>
