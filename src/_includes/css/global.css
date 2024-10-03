@@ -20,7 +20,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100svh;
-  width: 100vw;
+  width: 100%;
 }
 
 body > *:not(a, header) {
