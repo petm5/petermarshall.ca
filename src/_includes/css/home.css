@@ -7,7 +7,7 @@ body.home header {
   flex-direction: column;
   height: fit-content;
   min-height: 100svh;
-  background: linear-gradient(34deg, #000 0%, #0e0e0e 100%);
+  background: linear-gradient(124deg, #000 0%, #0e0e0e 100%);
 }
 
 header {
@@ -83,7 +83,7 @@ header {
 .intro-section video {
   max-width: 100%;
   width: 550px;
-  height: auto;
+  height: 550px;
   pointer-events: none;
   animation: fade-in 1.2s;
   animation-timing-function: ease;
