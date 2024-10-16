@@ -22,9 +22,9 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
 		extensions: "html",
     widths: ["auto"],
-    formats: ['avif'],
+    formats: ['avif', 'jpeg'],
     urlPath: '/assets/',
-    widths: [144, 240, 460, 768, 1024],
+    widths: [240, 460, 768, 1024],
 		defaultAttributes: {
 			loading: "lazy",
 			decoding: "async",

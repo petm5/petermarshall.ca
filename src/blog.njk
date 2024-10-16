@@ -7,6 +7,7 @@ pagination:
 permalink: 'blog{% if pagination.pageNumber > 0 %}/page/{{ pagination.pageNumber }}{% endif %}/index.html'
 ---
 
+<h1 class="semantic-info">Blog</h1>
 {% include "components/post-grid.njk" %}
 
 <div class="links">

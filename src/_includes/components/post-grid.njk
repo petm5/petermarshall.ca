@@ -7,10 +7,10 @@
         <img src="{{post.data.featuredImage}}" alt="" />
         {% endif -%}
       </div>
-      <p>
-        <strong>{{post.data.title}}</strong>
-        <small class="date">{{post.date | postDate}}</small>
-      </p>
+      <div class="text">
+        <p><strong>{{post.data.title}}</strong></p>
+        <p><small class="date">{{post.date | postDate}}</small></p>
+      </div>
     </a>
   </li>
   {% endfor %}

@@ -1,0 +1,180 @@
+body {
+  background: white;
+  color: black;
+  margin: 40px;
+}
+
+h1 {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+
+.main img {
+  width: 400px;
+  height: auto;
+  margin: 16px 0;
+}
+
+@supports (display: flex) {
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    --layout-spacing: clamp(1rem, 6vw, 6rem);
+    --elem-spacing: 2em;
+    --side-spacing: clamp(1rem, 5vw, 3rem);
+    --navbar-height: 50px;
+    --content-max-width: 95ch;
+    background: var(--main-bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+    width: 100%;
+  }
+
+  .main p {
+    margin: 0;
+  }
+
+  body > *:not(a, header) {
+    margin: 0 auto;
+    width: 100%;
+    max-width: var(--content-max-width);
+    padding: 0 var(--side-spacing);
+    padding-top: var(--layout-spacing);
+    background: var(--main-bg-color);
+  }
+
+  .main {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+  }
+
+  .links {
+    padding-top: 2.8em;
+  }
+
+  .main > p:has(img) {
+    --spacing: clamp(1em, 3vw, 3rem);
+    width: 100%;
+    height: auto;
+    max-width: min(100%, 75ch);
+    max-height: 80vh;
+    position: relative;
+    margin: var(--spacing) auto;
+    display: block;
+    border-radius: 9px;
+    overflow: hidden;
+    box-shadow: 0 0 2rem #0002;
+  }
+
+  .main img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+  }
+
+  .semantic-info {
+    display: none;
+  }
+
+  .main > *:first-child img {
+    margin-top: 0 !important;
+  }
+
+  :is(h1, h2, h3) {
+    line-height: 1.2;
+    background: linear-gradient(to right bottom, #fff 30%, #fff8 100%);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #fffe;
+  }
+
+  :is(h2, h3):not(:first-child) {
+    margin-top: 2em;
+  }
+
+  :is(h1, h2, h3) > a {
+    text-decoration: none;
+    color: unset;
+    display: block;
+    width: 100%;
+  }
+
+  :is(h1, h2, h3) > a:hover {
+    text-decoration: underline;
+  }
+
+  .main > *:not(:has(img)) + * {
+    margin-top: 1em;
+  }
+
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.title {
+  width: 100%;
+  margin-bottom: 0.4ch;
+}
+
+.title h1 {
+  margin-bottom: 8px;
+}
+
+table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+  max-width: fit-content;
+  box-shadow: 0px 3px 50px black;
+}
+
+a {
+  color: var(--link-color);
+  text-underline-offset: 0.15em;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td, th {
+  padding: 6px 10px;
+  border: 1px solid;
+}
+
+.date::before {
+  content: "🕒";
+  margin-right: 1ch;
+}
+
+.links {
+  user-select: none;
+  margin-top: auto;
+}
+
+.links > * {
+  margin-right: 10px;
+}
+
+.tag::before {
+  content: "🏷️";
+  margin-right: 8px;
+}

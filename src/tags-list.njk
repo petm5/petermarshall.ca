@@ -5,5 +5,5 @@ title: Topics
 
 {% for tag in collections.all | getAllTags | filterTagList %}
 	{% set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
-  <span class="tag"><a href="{{ tagUrl }}">{{ tag }}</a></span>
+  <p class="tag"><a href="{{ tagUrl }}">{{ tag }}</a></p>
 {% endfor %}
