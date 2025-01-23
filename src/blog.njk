@@ -2,21 +2,10 @@
 title: Blog
 pagination:
   data: collections.posts
-  size: 10
+  size: 6
   alias: posts
+  generatePageOnEmptyData: true
 permalink: 'blog{% if pagination.pageNumber > 0 %}/page/{{ pagination.pageNumber }}{% endif %}/index.html'
 ---
 
-<h1 class="semantic-info">Blog</h1>
 {% include "components/post-grid.njk" %}
-
-<div class="links">
-  <p>
-    {% include "components/pagination.njk" %}
-  </p>
-  <p>
-    <a href="/tags">Topics</a>
-    -
-    <a href="/all-posts">View All</a>
-  </p>
-</div>

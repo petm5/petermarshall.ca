@@ -13,7 +13,7 @@
     flex-direction: column;
     height: fit-content;
     min-height: 100svh;
-    background: linear-gradient(124deg, #000 0%, #0e0e0e 100%);
+    background: radial-gradient(60% 60% at 69% 49%, #FFFFFF05 0%, #00000000 100%),radial-gradient(150% 150% at -8% -72%, #FFFFFF05 0%, #00000000 100%),radial-gradient(180% 180% at -65% 26%, #0A0A0AFF 0%, #000000FF 100%);
   }
 
   header {

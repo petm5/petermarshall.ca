@@ -9,10 +9,10 @@
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="{{ colors.primary }}" />
 
-    <link rel="preload" href="/assets/main.{{ gitRev }}.css" as="style" />
+    <link rel="preload" href="/assets/main.css?r={{ gitRev }}" as="style" />
     <link rel="preload" href="{{ site.logo }}" as="image" />
 
-    <link rel="stylesheet" href="/assets/main.{{ gitRev }}.css" />
+    <link rel="stylesheet" href="/assets/main.css?r={{ gitRev }}" />
     <link rel="icon" href="{{ site.favicon }}" sizes="any">
   </head>
   <body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>

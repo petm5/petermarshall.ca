@@ -6,10 +6,10 @@ description: Explore the world of creating digital experiences that resonate dee
 
 # Let's get building.
 
-![Rideau Canal](/assets/banner.jpg)
+{% include 'components/banner-image.njk' %}
 
-This is Peter Marshall's tech and web development blog, where we explore the intricate world of creating *secure* and *reliable* applications.
+This is Peter Marshall's tech and web development blog, where we explore the intricate world of creating *secure* and *trustworthy* applications.
 
-My mission is to blend ever-evloving technology with the transformative power of creative art. I believe that software development is more than just writing code; it's about crafting experiences that resonate deeply with end users.
+I believe that software development is more than just writing code; it's about crafting experiences that resonate deeply with end users. Whether I'm working on a new feature or maintaining existing functionality, my goal is always to create solutions that are intuitive, reliable, and sustainable.
 
 {% include 'components/nav-buttons.njk' %}

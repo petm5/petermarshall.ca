@@ -61,7 +61,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter('cssmin', function(code) {
   	return cssmin.minify(code).styles
   })
-  eleventyConfig.addGlobalData('gitRev', (process.env.GIT_REVISION || process.env.CF_PAGES_COMMIT_SHA).substr(0, 7))
+  eleventyConfig.addGlobalData('gitRev', (process.env.GIT_REVISION || process.env.CF_PAGES_COMMIT_SHA || "dev").substr(0, 7))
   return {
   	dir: {
       input: 'src',
