@@ -9,7 +9,7 @@ h1 {
   margin-bottom: 0.25em;
 }
 
-.main img {
+main img {
   width: 400px;
   height: auto;
   margin: 16px 0;
@@ -32,8 +32,6 @@ h1 {
     --side-spacing: clamp(1rem, 5vw, 3rem);
     --navbar-height: 50px;
     --content-max-width: 95ch;
-    background: var(--main-bg-color);
-    color: var(--text-color);
     margin: 0;
     padding: 0;
     line-height: 1.5;
@@ -44,20 +42,19 @@ h1 {
     width: 100%;
   }
 
-  .main p {
+  main p {
     margin: 0;
   }
 
-  body > *:not(a, header) {
+  body > :is(main, footer) {
     margin: 0 auto;
     width: 100%;
     max-width: var(--content-max-width);
     padding: 0 var(--side-spacing);
     padding-top: var(--layout-spacing);
-    background: var(--main-bg-color);
   }
 
-  .main {
+  main {
     display: flex;
     flex-grow: 1;
     flex-direction: column;
@@ -67,7 +64,7 @@ h1 {
     padding-top: 2.8em;
   }
 
-  .main > p:has(img) {
+  main > p:has(img) {
     --spacing: clamp(1em, 3vw, 3rem);
     width: 100%;
     height: auto;
@@ -81,7 +78,7 @@ h1 {
     box-shadow: 0 0 2rem #0002;
   }
 
-  .main img {
+  main img {
     width: 100%;
     height: auto;
     display: block;
@@ -92,7 +89,7 @@ h1 {
     display: none;
   }
 
-  .main > *:first-child img {
+  main > *:first-child img {
     margin-top: 0 !important;
   }
 
@@ -119,7 +116,7 @@ h1 {
     text-decoration: underline;
   }
 
-  .main > *:not(:has(img)) + * {
+  main > *:not(:has(img)) + * {
     margin-top: 1em;
   }
 
