@@ -13,7 +13,8 @@
     flex-direction: column;
     height: fit-content;
     min-height: 100svh;
-    background: radial-gradient(60% 60% at 69% 49%, #FFFFFF05 0%, #00000000 100%),radial-gradient(150% 150% at -8% -72%, #FFFFFF05 0%, #00000000 100%),radial-gradient(180% 180% at -65% 26%, #0A0A0AFF 0%, #000000FF 100%);
+    background: #121212;
+    background: radial-gradient(at left bottom, #080808 -10%, #141412);
   }
 
   header {
@@ -52,7 +53,7 @@
       z-index: 1;
     }
     .intro-section div:has(video) {
-      filter: blur(12px);
+      filter: blur(6px) brightness(0.9);
     }
   }
 
@@ -67,6 +68,7 @@
   .intro-section .content {
     font-size: 1.125rem;
     color: #f4fbffde;
+    z-index: 1;
   }
 
   .intro-section .action {
@@ -79,6 +81,7 @@
     font-weight: 400;
     text-shadow: -1px -1px 0 #fff3, 1px 1px 0 #0002;
     -webkit-text-stroke: .4px #fff8;
+    margin-top: 0;
   }
 
   @media (max-width: 600px) {
@@ -94,6 +97,10 @@
     pointer-events: none;
     animation: fade-in 1.2s;
     animation-timing-function: ease;
+    border-radius: 100%;
+    background-color: #121212;
+    mask: radial-gradient(#000 50%, #0000 70%);
+    transform: scale(1.1);
   }
 
   @keyframes fade-in {
