@@ -1,0 +1,55 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: ["prod"]
+  pull_request:
+    branches: ["prod"]
+
+jobs:
+  build:
+    name: "Build and Deploy"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.10.0
+          cache: "npm"
+      - run: npm install --frozen-lockfile
+
+      - uses: actions/cache/restore@v4
+        id: cache
+        with:
+          path: |
+            .cache
+            _site/assets
+            node_modules
+          key: 11ty-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: |
+            11ty-${{ runner.os }}
+            ${{ runner.os }}-11ty
+
+      - name: Build 11ty site
+        run: npm run build
+        env:
+          GIT_REVISION: ${{ github.sha }}
+
+      - uses: actions/cache/save@v4
+        with:
+          path: |
+            .cache
+            _site/assets
+            node_modules
+          key: 11ty-${{ runner.os }}-${{ github.run_id }}
+
+      - name: Setup AWS CLI
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Sync files to S3 bucket
+        run: |
+          aws s3 sync _site s3://petermarshall-ca-content-7f854887-d7f1-4e75-a649-9d00cf39b35e --delete
