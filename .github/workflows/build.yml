@@ -50,7 +50,7 @@ jobs:
           aws-region: ca-central-1
       - name: Sync content to S3 bucket
         run: |
-          aws s3 sync _site s3://petermarshall-ca-content-7f854887-d7f1-4e75-a649-9d00cf39b35e --delete --exclude "/assets" --metadata-directive REPLACE --cache-control max-age=600,public
+          aws s3 sync _site s3://petermarshall-ca-content-7f854887-d7f1-4e75-a649-9d00cf39b35e --delete --exclude "/assets/*" --metadata-directive REPLACE --cache-control max-age=600,public
       - name: Sync static assets to S3 bucket
         run: |
-          aws s3 sync _site s3://petermarshall-ca-content-7f854887-d7f1-4e75-a649-9d00cf39b35e --delete --exclude "*" --include "/assets" --metadata-directive REPLACE --cache-control max-age=3153600,public
+          aws s3 sync _site s3://petermarshall-ca-content-7f854887-d7f1-4e75-a649-9d00cf39b35e --delete --exclude "*" --include "/assets/*" --metadata-directive REPLACE --cache-control max-age=3153600,public
