@@ -27,7 +27,7 @@
     grid-template-columns: repeat(2, 1fr);
     flex-shrink: 0;
     flex-grow: 1;
-    padding: var(--elem-spacing) 32px;
+    padding: var(--elem-spacing) 4rem;
     max-width: 80rem;
     margin: 0 auto;
     position: relative;
@@ -38,23 +38,6 @@
   @keyframes zoom-in {
     0% { transform: translateY(10px); filter: opacity(0) }
     100% {}
-  }
-
-  @media (max-width: 1200px) {
-    .intro-section {
-      grid-template-columns: 100%;
-      grid-template-rows: 100%;
-      max-width: 40rem;
-    }
-    .intro-section div {
-      grid-area: 1 / 1;
-    }
-    .intro-section div:not(:has(video)) {
-      z-index: 1;
-    }
-    .intro-section div:has(video) {
-      filter: blur(6px) brightness(0.9);
-    }
   }
 
   .intro-section div {
@@ -69,6 +52,31 @@
     font-size: 1.125rem;
     color: #f4fbffde;
     z-index: 1;
+    text-wrap-style: pretty;
+  }
+
+  @media (max-width: 1200px) {
+    .intro-section {
+      grid-template-columns: 100%;
+      grid-template-rows: 100%;
+      max-width: 40rem;
+      padding: var(--elem-spacing) 24px;
+    }
+    .intro-section div {
+      grid-area: 1 / 1;
+    }
+    .intro-section div:not(:has(video)) {
+      z-index: 1;
+    }
+    .intro-section div:has(video) {
+      filter: blur(6px) brightness(0.9);
+    }
+    .intro-section .content {
+      text-align: center;
+    }
+    .intro-section .action {
+      margin: 0 auto;
+    }
   }
 
   .intro-section .action {
@@ -122,30 +130,6 @@
     animation-timing-function: linear;
     background: #999;
     box-shadow: 0 0 2px #fff2;
-  }
-
-  .intro-section:after {
-    content: "";
-    width: 1.5rem;
-    height: 1.5rem;
-    display: block;
-    position: absolute;
-    bottom: 3rem;
-    left: 0;
-    right: 0;
-    margin: auto;
-    border: solid;
-    border-color: #fff8;
-    border-width: 0 1.5px 1.5px 0;
-    border-radius: 0 0 2px 0;
-    transform: rotate(45deg);
-    animation: bob 5s ease-in-out infinite;
-  }
-
-  @keyframes bob {
-    45% { translate: 0 0px; }
-    50% { translate: 0 -2px; }
-    55% { translate: 0 0px; }
   }
 
   @keyframes blink {

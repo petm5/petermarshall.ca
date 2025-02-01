@@ -15,6 +15,10 @@ main img {
   margin: 16px 0;
 }
 
+a#main {
+  scroll-margin-top: 45px;
+}
+
 @supports (display: flex) {
 
   * {
@@ -99,6 +103,7 @@ main img {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: #fffe;
+    scroll-margin-top: 55px;
   }
 
   :is(h2, h3):not(:first-child) {
