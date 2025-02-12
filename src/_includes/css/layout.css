@@ -11,6 +11,7 @@ h1 {
 
 main img {
   width: 400px;
+  max-width: 100%;
   height: auto;
   margin: 16px 0;
 }
@@ -46,10 +47,6 @@ a#main {
     width: 100%;
   }
 
-  main p {
-    margin: 0;
-  }
-
   body > :is(main, footer) {
     margin: 0 auto;
     width: 100%;
@@ -68,25 +65,12 @@ a#main {
     padding-top: 2.8em;
   }
 
-  main > p:has(img) {
-    --spacing: clamp(1em, 3vw, 3rem);
-    width: 100%;
-    height: auto;
-    max-width: min(100%, 75ch);
-    max-height: 80vh;
-    position: relative;
-    margin: var(--spacing) auto;
-    display: block;
-    border-radius: 9px;
-    overflow: hidden;
-    box-shadow: 0 0 2rem #0002;
-  }
-
   main img {
     width: 100%;
     height: auto;
     display: block;
     margin: 0;
+    padding: 1em 0;
   }
 
   .semantic-info {
@@ -121,7 +105,7 @@ a#main {
     text-decoration: underline;
   }
 
-  main > *:not(:has(img)) + * {
+  main > * + * {
     margin-top: 1em;
   }
 
