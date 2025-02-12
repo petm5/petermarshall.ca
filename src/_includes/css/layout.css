@@ -9,7 +9,7 @@ h1 {
   margin-bottom: 0.25em;
 }
 
-main img {
+figure img, p img {
   width: 400px;
   max-width: 100%;
   height: auto;
