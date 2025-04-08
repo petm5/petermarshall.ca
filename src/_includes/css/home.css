@@ -15,6 +15,7 @@
     min-height: 100svh;
     background: #121212;
     background: radial-gradient(at left bottom, #080808 -10%, #141412);
+    box-shadow: 0 0 80px #000;
   }
 
   header {
@@ -33,11 +34,32 @@
     position: relative;
     animation: zoom-in 1.8s;
     animation-timing-function: ease;
+    overflow: hidden;
   }
 
   @keyframes zoom-in {
     0% { transform: translateY(10px); filter: opacity(0) }
     100% {}
+  }
+
+  @supports (filter: blur()) {
+
+    .intro-section::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      max-width: 800px;
+      aspect-ratio: 1;
+      translate: 0 15%;
+      rotate: 45deg;
+      background: linear-gradient(-45deg, #67a8, transparent 50%);
+      filter: blur(80px);
+    }
+
   }
 
   .intro-section div {
@@ -81,6 +103,11 @@
 
   .intro-section .action {
     height: 3rem;
+    transition: box-shadow 0.4s;
+  }
+
+  .intro-section .action:hover {
+    box-shadow: 0 0 16px 4px #346;
   }
 
   .intro-section .content h1 {
