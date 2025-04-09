@@ -15,7 +15,7 @@
     min-height: 100svh;
     background: #121212;
     background: radial-gradient(at left bottom, #080808 -10%, #141412);
-    box-shadow: 0 0 80px #000, 0 -120px 120px -80px #74579d33 inset;
+    box-shadow: 0 0 80px #000, 0 -120px 120px -120px #74579d33 inset;
   }
 
   header {
