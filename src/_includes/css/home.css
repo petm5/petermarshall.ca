@@ -135,7 +135,6 @@
     border-radius: 100%;
     background-color: #121212;
     mask: radial-gradient(#000 50%, #0000 70%);
-    transform: scale(1.1);
   }
 
   @keyframes fade-in {
