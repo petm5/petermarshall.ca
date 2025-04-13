@@ -17,8 +17,6 @@ figure img, p img {
   margin: 16px 0;
 }
 
-a#main {
-  scroll-margin-top: 45px;
 header {
   user-select: none;
 }

@@ -10,12 +10,11 @@ eleventyComputed:
   {% include "css/colors.css.njk" %}
   {% include "css/navbar.css" %}
   {% include "css/logo.css" %}
-  {% include "css/footer.css" %}
   {% include "css/buttons.css" %}
-  {% include "css/home.css" %}
+  {% include "css/hero.css" %}
   {% include "css/grid.css" %}
   {% include "css/print.css" %}
   {% include "css/form.css" %}
 {% endset -%}
 
-{{ css | cssmin | safe }}
+{{ css | safe }}

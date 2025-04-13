@@ -1,10 +1,11 @@
 ---
-layout: layouts/home.njk
 actionText: Learn More
 description: Explore the world of creating digital experiences that resonate deeply with end users.
 ---
 
-# Let's get building.
+{% include 'components/hero.njk' %}
+
+# Let's get building. {#main}
 
 {% include 'components/banner-image.njk' %}
 
