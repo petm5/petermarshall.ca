@@ -6,6 +6,6 @@
   "baseUrl": "https://petermarshall.ca",
   "robots": "/robots.txt",
   "siteMap": "/sitemap.txt",
-  "favicon": "/assets/favicon.png",
+  "favicon": "/assets/logo.png",
   "logo": "/assets/logo-transparent.svg"
 }
