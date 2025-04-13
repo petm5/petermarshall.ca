@@ -1,24 +1,62 @@
-const markdown = require('markdown-it')({
+import markdownit from 'markdown-it';
+import markdownitattrs from 'markdown-it-attrs';
+import markdownitanchor from 'markdown-it-anchor';
+
+const markdown = markdownit({
   html: true,
   breaks: false,
   linkify: true,
 })
-.use(require('markdown-it-attrs'))
-.use(require("markdown-it-anchor"))
+.use(markdownitattrs)
+.use(markdownitanchor)
 
-const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
+import EleventyVitePlugin from "@11ty/eleventy-plugin-vite";
+import { ViteMinifyPlugin } from 'vite-plugin-minify';
 
-const htmlmin = require('html-minifier');
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 
-const CleanCSS = require("clean-css");
-const cssmin = new CleanCSS({});
+import path from "path";
 
-module.exports = function(eleventyConfig) {
+import { format } from "date-fns";
+
+export default async function(eleventyConfig) {
   eleventyConfig.setLibrary('md', markdown)
-  eleventyConfig.addPassthroughCopy("src/main.css")
   eleventyConfig.addPassthroughCopy("src/assets")
   eleventyConfig.addPassthroughCopy({"src/assets/logo.png": "assets/favicon.png"})
   eleventyConfig.addPassthroughCopy({"src/assets/logo-transparent.svg": "assets/logo-transparent.svg"})
+  eleventyConfig.addPlugin(EleventyVitePlugin, {
+    viteOptions: {
+      appType: "mpa",
+      plugins: [
+        ViteMinifyPlugin({
+          processScripts: ['application/ld+json'],
+          removeComments: false
+        }),
+      ],
+      build: {
+        assetsInlineLimit: 0,
+        rollupOptions: {
+          output: {
+            assetFileNames: (assetInfo) => {
+              const extension = path.extname(assetInfo.name);
+              if (['.jpeg', '.png', '.avif', '.webp'].includes(extension)) {
+                return 'assets/[name].[ext]';
+              }
+              return 'assets/[name].[hash].[ext]';
+            },
+          },
+        },
+      },
+      server: {
+        middlewareMode: true,
+      },
+      resolve: {
+        alias: {
+          "/node_modules": path.resolve(".", "node_modules"),
+        },
+      }
+    }
+	})
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
 		extensions: "html",
     widths: ["auto"],
@@ -46,20 +84,11 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.addFilter("filterTagList", function filterTagList(tags) {
 		return (tags || []).filter(tag => ["all", "nav", "post", "posts"].indexOf(tag) === -1)
 	})
+  eleventyConfig.addFilter('date', function (date, dateFormat) {
+    return format(date, dateFormat)
+  })
 	eleventyConfig.addCollection('posts', collection => {
     return [...collection.getFilteredByGlob('./src/blog/*.md')].reverse()
-  })
-  eleventyConfig.addTransform('htmlmin', function(content, outputPath) {
-  	if (!outputPath.endsWith('.html')) return content;
-
-  	return htmlmin.minify(content, {
-  		useShortDoctype: true,
-  		removeComments: false,
-  		collapseWhitespace: true
-  	})
-  })
-  eleventyConfig.addFilter('cssmin', function(code) {
-  	return cssmin.minify(code).styles
   })
   eleventyConfig.addGlobalData('gitRev', (process.env.GIT_REVISION || process.env.CF_PAGES_COMMIT_SHA || "dev").substr(0, 7))
   return {
