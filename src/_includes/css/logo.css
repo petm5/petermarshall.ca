@@ -5,18 +5,9 @@
 .logo img {
   display: block;
   margin: 0 !important;
-  width: 36px;
   height: 36px;
+  place-content: center;
   border-radius: 0;
-  filter: invert(100%);
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo img {
-    filter: unset;
-  }
-}
-
-.navbar .logo img {
-  filter: unset;
+  font-weight: 300;
+  font-size: 1.2rem;
 }

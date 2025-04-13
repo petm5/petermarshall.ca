@@ -50,7 +50,8 @@
 
   .navbar nav li {
     display: inline-block;
-    font-size: 15px;
+    font-size: .95rem;
+    font-weight: 300;
     margin-left: 1.25rem;
   }
 
