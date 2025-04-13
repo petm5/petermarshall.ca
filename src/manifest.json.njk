@@ -14,10 +14,16 @@ eleventyComputed:
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "{{ site.favicon }}",
+      "src": "/assets/logo.avif",
+      "type": "image/avif",
+      "sizes": "500x500",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/logo.png",
       "type": "image/png",
-      "sizes": "512x512",
-      "purpose": "maskable"
+      "sizes": "500x500",
+      "purpose": "any maskable"
     }
   ]
 }
