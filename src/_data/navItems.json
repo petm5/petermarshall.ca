@@ -5,7 +5,8 @@
     "href": "/blog/"
   },
   {
-    "name": "About",
-    "href": "/#main"
+    "name": "Contact",
+    "desc": "Get in Touch",
+    "href": "/contact/"
   }
 ]
