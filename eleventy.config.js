@@ -21,9 +21,9 @@ import { format } from "date-fns";
 
 export default async function(eleventyConfig) {
   eleventyConfig.setLibrary('md', markdown)
-  eleventyConfig.addPassthroughCopy("src/assets")
-  eleventyConfig.addPassthroughCopy({"src/assets/logo.png": "assets/favicon.png"})
-  eleventyConfig.addPassthroughCopy({"src/assets/logo-transparent.svg": "assets/logo-transparent.svg"})
+  eleventyConfig.addPassthroughCopy({"src/assets": "public/assets"})
+  eleventyConfig.addPassthroughCopy({"src/assets/logo.png": "public/assets/favicon.png"})
+  eleventyConfig.addPassthroughCopy({"src/assets/logo-transparent.svg": "public/assets/logo-transparent.svg"})
   eleventyConfig.addPlugin(EleventyVitePlugin, {
     viteOptions: {
       appType: "mpa",
