@@ -1,5 +1,5 @@
 <div class="form-container">
-  <form action="/api/v1/contact" method="POST" enctype="application/x-www-form-urlencoded">
+  <form action="submit" method="POST" enctype="multipart/form-data">
     <p>
       <label for="name">Name</label>
       <input name="name" type="text" required />
@@ -9,11 +9,15 @@
       <input name="email" type="email" required />
     </p>
     <p>
+      <label for="subject">Subject</label>
+      <input name="subject" type="text" required />
+    </p>
+    <p>
       <label for="message">Message</label>
       <textarea name="message" rows="10" required></textarea>
     </p>
     <p>
-      <button class="action">Submit</button>
+      <button class="action">Send</button>
     </p>
   </form>
 </div>
